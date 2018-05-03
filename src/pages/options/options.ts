@@ -1,28 +1,27 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditProfilePage } from '../editprofile/editprofile';
-import { OptionsPage } from '../options/options';
-
+import { ChangePasswordPage } from '../changepassword/changepassword';
 
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html',
+  selector: 'page-options',
+  templateUrl: 'options.html',
 })
-export class ProfilePage {
+export class OptionsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    console.log('ionViewDidLoad OptionsPage');
   }
 
-  gotoEditProfile(){
+  gotoEditProfilePage() {
     this.navCtrl.push(EditProfilePage);
   }
 
-  gotoOptionsPage() {
-    this.navCtrl.push(OptionsPage);
+  gotoChangePasswordPage() {
+    this.navCtrl.push(ChangePasswordPage);
   }
 
 }

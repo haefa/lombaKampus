@@ -12,7 +12,8 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ProfilePage } from '../pages/profile/profile';
 import { EditProfilePage } from '../pages/editprofile/editprofile';
-
+import { OptionsPage } from '../pages/options/options';
+import { ChangePasswordPage } from '../pages/changepassword/changepassword';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     ProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    OptionsPage,
+    ChangePasswordPage
 
   ],
   imports: [
@@ -47,8 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     ProfilePage,
-    EditProfilePage
-
+    EditProfilePage,
+    OptionsPage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,

@@ -1,10 +1,10 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Edit Profile</ion-title>
     <ion-buttons end>
-        <button ion-button icon-only>
+        <button ion-button (click)="gotoProfilePage()" icon-only>
           <ion-icon name="md-checkmark"></ion-icon>          
         </button>
     </ion-buttons>
@@ -12,9 +12,7 @@
 
 </ion-header>
 
-
 <ion-content padding>
-
     <ion-list >
         <ion-item no-lines></ion-item>
         <img src="assets/imgs/photo1.jpg" style='height: 40vh; width: 40vh; display: block; margin: auto;'>
@@ -46,9 +44,11 @@
 
         <ion-item>
             <ion-label stacked color="dark"><font size="2">Campus</font></ion-label>
-            <ion-input placeholder="Campus" [(ngModel)]="campus" type="number" value="{{campus}}" required></ion-input>
+            <ion-input placeholder="Campus" [(ngModel)]="campus" type="text" value="{{campus}}" required></ion-input>
         </ion-item>
-       
-      </ion-list>
+      
+        <ion-item no-lines></ion-item>
+
+    </ion-list>
 
 </ion-content>
