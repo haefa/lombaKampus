@@ -1,0 +1,62 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <ion-title>Profile</ion-title>
+      
+      <ion-buttons end>
+        <button ion-button color="primary" icon-only>
+          <ion-icon name="md-settings"></ion-icon>          
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card > 
+		<ion-item no-lines></ion-item>
+	  <img src="assets/imgs/photo1.jpg" style='height: 40vh; width: 40vh; display: block; margin: auto;'>
+		
+	  <ion-card-content>
+	    <ion-card-title text-center>
+        <h2><b> Profile Name</b></h2>
+        <button ion-button small (click)="gotoEditProfile()">Edit Profile</button>
+	      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-list>
+    <ion-item>
+        <ion-icon name="md-briefcase" color="primary" item-left></ion-icon>
+          <font size="3">NIM</font>
+          <p>G64150018</p>
+    </ion-item>
+
+	  <ion-item>
+	    <ion-icon name="mail" color="primary" item-left></ion-icon>
+	     <font size="3">Email</font>
+	     <p>hafidlotulfahmad@gmail.com</p>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-icon name="call" color="primary" item-left></ion-icon>
+	     <font size="3">Phone number</font>
+	     <p>085712163208</p>
+    </ion-item>
+    
+    <!-- <ion-item>
+        <ion-icon name="md-female" color="primary" item-left></ion-icon>
+         <font size="3">Gender</font>
+         <p>Female</p>
+      </ion-item> -->
+
+	  <ion-item  text-wrap>
+	    <ion-icon name="md-school" color="primary" item-left></ion-icon>
+	     <font size="3">Campus</font>
+	     <p>Bogor Institute of Agriculture</p>
+	  </ion-item>
+  </ion-list>
+
+</ion-content>
