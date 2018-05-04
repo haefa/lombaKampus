@@ -6,11 +6,11 @@
   </ion-navbar>
 
   <ion-segment [(ngModel)]="user">
-      <ion-segment-button value="participants">
-        <div class="Head2">Participants</div>
+      <ion-segment-button value="activity">
+        <div class="Head2">Activity</div>
       </ion-segment-button>
-      <ion-segment-button value="committee">
-        <div class="Head2">Committee</div>
+      <ion-segment-button value="messages">
+        <div class="Head2">Messages</div>
       </ion-segment-button>
   </ion-segment>
 
@@ -20,11 +20,29 @@
 <ion-content padding>
   
   <div [ngSwitch]="user">
-    <ion-list *ngSwitchCase="'participants'">
-      <!-- ..... -->
+    <ion-list *ngSwitchCase="'activity'">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start item-right>
+            <img src="assets/imgs/photo1.jpg">
+          </ion-avatar>
+          <h2><strong>Deadline Submission File Apps Innovation</strong></h2>
+          <h4>JOINTS 2018</h4>
+          <p>3 days remaining...</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-avatar item-start item-right>
+            <img src="assets/imgs/photo1.jpg">
+          </ion-avatar>
+          <h2><strong>Data Mining</strong></h2>
+          <p>30 April 2018</p>
+        </ion-item>
+
+      </ion-list>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'committee'">
+    <ion-list *ngSwitchCase="'messages'">
       <!-- ..... -->
     </ion-list>
   </div>

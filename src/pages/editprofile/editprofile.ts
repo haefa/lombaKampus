@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+
 
 @Component({
   selector: 'page-editprofile',
@@ -17,14 +18,22 @@ export class EditProfilePage {
   campus: string;
   isValidFormTelephone = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController
+  ){}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
   }
 
   gotoProfilePage() {
+    let loader = this.loadingCtrl.create({
+      content: "Please wait..",
+      duration: 300
+    });
+    loader.present();
     this.navCtrl.setRoot(ProfilePage);
   }
 

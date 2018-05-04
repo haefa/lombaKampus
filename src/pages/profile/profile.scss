@@ -1,3 +1,7 @@
 page-profile {
-    display: inline
+    display: inline;
+    .profile{
+        // border-radius: 1000%;
+        height: 40vh; width: 40vh; display: block; margin: auto;
+    }
 }

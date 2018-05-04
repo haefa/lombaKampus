@@ -1,0 +1,47 @@
+
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>LombaKu</ion-title>
+    </ion-navbar>
+  
+    <ion-segment [(ngModel)]="lomba">
+        <ion-segment-button value="participants">
+          <div class="Head2">As Participants</div>
+        </ion-segment-button>
+        <ion-segment-button value="committee">
+          <div class="Head2">As Committee</div>
+        </ion-segment-button>
+    </ion-segment>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    
+    <div [ngSwitch]="lomba">
+      <ion-list *ngSwitchCase="'participants'">
+          <img src="assets/icon/calendar.png" class="image" no-lines/>
+          <p class="paragraph">Uh-oh! You haven't registered in any <b>lomba</b> yet.</p>
+          <ion-row center>
+              <button ion-button icon-left>
+                  <ion-icon name="add"></ion-icon>
+                     Start Participate
+              </button>    
+          </ion-row>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'committee'">
+          <img src="assets/icon/calendar.png" class="image" no-lines/>
+          <p class="paragraph">Uh-oh! You haven't make any <b>lomba</b> yet.</p>
+          <ion-row center>
+              <button ion-button icon-left>
+                  <ion-icon name="add"></ion-icon>
+                     Create Lomba
+              </button>    
+          </ion-row>
+      </ion-list>
+    </div>
+    
+  </ion-content>
+  

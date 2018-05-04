@@ -14,6 +14,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { EditProfilePage } from '../pages/editprofile/editprofile';
 import { OptionsPage } from '../pages/options/options';
 import { ChangePasswordPage } from '../pages/changepassword/changepassword';
+import { LombakuPage } from '../pages/lombaku/lombaku';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,8 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     EditProfilePage,
     OptionsPage,
-    ChangePasswordPage
-
+    ChangePasswordPage,
+    LombakuPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     EditProfilePage,
     OptionsPage,
-    ChangePasswordPage
+    ChangePasswordPage,
+    LombakuPage
   ],
   providers: [
     StatusBar,
