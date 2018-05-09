@@ -2,18 +2,16 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-notification',
-  templateUrl: 'notification.html',
+  selector: 'page-lomba-detail',
+  templateUrl: 'lomba-detail.html',
 })
-export class NotificationPage {
-  notification: string = "activity";
+export class LombaDetailPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationPage');
+    console.log('ionViewDidLoad LombaDetailPage');
   }
-
-
 
 }

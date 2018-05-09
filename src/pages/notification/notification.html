@@ -5,7 +5,7 @@
     <ion-title>Notification</ion-title>
   </ion-navbar>
 
-  <ion-segment [(ngModel)]="user">
+  <ion-segment [(ngModel)]="notification">
       <ion-segment-button value="activity">
         <div class="Head2">Activity</div>
       </ion-segment-button>
@@ -19,7 +19,7 @@
 
 <ion-content padding>
   
-  <div [ngSwitch]="user">
+  <div [ngSwitch]="notification">
     <ion-list *ngSwitchCase="'activity'">
       <ion-list>
         <ion-item>
@@ -43,7 +43,27 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'messages'">
-      <!-- ..... -->
+        <ion-list>
+            <ion-item>
+              <ion-avatar item-start item-right>
+                <img src="assets/imgs/photo1.jpg">
+              </ion-avatar>
+              <h2><strong>API Joints</strong></h2>
+              <p>Apakah boleh menggunakan teknologi x?</p>
+            </ion-item>
+    
+            <ion-item>
+              <ion-avatar item-start item-right>
+                <img src="assets/imgs/photo1.jpg">
+              </ion-avatar>
+              <h2><strong>Data Mining Joints</strong></h2>
+              <p>Deadline penyisihan kapan?</p>
+            </ion-item>
+    
+          </ion-list>
+          <ion-fab bottom right>
+        <button ion-fab (click)="newChat()"> <ion-icon name="add"></ion-icon></button>
+     </ion-fab>
     </ion-list>
   </div>
   
