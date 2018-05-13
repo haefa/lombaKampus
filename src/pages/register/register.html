@@ -14,12 +14,12 @@
         
         <ion-item>
           <ion-label floating ><p class="Head">Name</p></ion-label>
-          <ion-input class="Head2" [(ngModel)]="name" name="name" type="text" #nama="ngModel" spellcheck="false" autocapitalize="off"
+          <ion-input class="Head2" [(ngModel)]="nama" name="nama" type="text" #name="ngModel" spellcheck="false" autocapitalize="off"
             required>
           </ion-input>
         </ion-item>
         
-        <p class="Warning" ion-text [hidden]="nama.valid || submitted == false" color="danger" padding-left>
+        <p class="Warning" ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left>
           Name must be filled
         </p>
   
@@ -54,41 +54,39 @@
         <div ion-text [hidden]="confPass==password"  padding-left>
           <p class="Warning" color="danger" *ngIf="confPass!=null">Password doesn't match</p>
         </div>
-  
-        <ion-item>
-          <ion-label floating ><p class="Head">Phone</p></ion-label>
-          <ion-input class="Head2" [(ngModel)]="telephone" (ionChange)="checkTelephone()" name="telephone" type="number" #telpon="ngModel" pattern="[0]{1}[0-9]{1,}" maxlength="13" required>
-          </ion-input>
-        </ion-item>
-        <div ion-text [hidden]="telpon.valid || submitted == false"  padding-left>
-          <p class="Warning" color="danger" *ngIf="!telephone">Phone must be filled</p>
-          <p class="Warning" color="danger" *ngIf="telephone">Not a phone number</p>
-        </div>
 
         <ion-item>
             <ion-label><font size="2" color="black">Gender</font></ion-label>
-            <ion-select [(ngModel)]="sex" name="sex" #jk="ngModel" required>
+            <ion-select [(ngModel)]="jenis_kelamin" name="jenis_kelamin" #jk="ngModel" required>
             <ion-option value="L">Male</ion-option>
             <ion-option value="P">Female</ion-option>
             </ion-select>
         </ion-item>
         <p ion-text [hidden]="jk.valid || submitted == false" color="danger" padding-left>
-            Pilih satu
+            Choose one
           </p>
 
   
         <ion-item>
           <ion-label floating ><p class="Head">Campus</p></ion-label>
-          <ion-textarea class="Head2"  [(ngModel)]="address" name="address" type="text" #alamat="ngModel" required autosize></ion-textarea>
+          <ion-textarea class="Head2"  [(ngModel)]="universitas" name="universitas" type="text" #campus="ngModel" required autosize></ion-textarea>
         </ion-item>
-        <p class="Warning" ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left>
+        <p class="Warning" ion-text [hidden]="campus.valid || submitted == false" color="danger" padding-left>
           Campus must be filled
         </p>
+
+        <ion-item>
+            <ion-label floating ><p class="Head">NIM</p></ion-label>
+            <ion-textarea class="Head2"  [(ngModel)]="nim" name="nim" type="text" #nrp="ngModel" required autosize></ion-textarea>
+          </ion-item>
+          <p class="Warning" ion-text [hidden]="nrp.valid || submitted == false" color="danger" padding-left>
+            NIM must be filled
+          </p>
       </ion-list>
   
       <ion-row responsive-sm>
         <ion-col>
-          <button class="Button" color="AyoDermawan" ion-button block (click)="home()" type="submit"><p class="ButtonWord">Daftar</p></button>
+          <button class="Button" color="primary" ion-button block (click)="signUp()" type="submit"><p class="ButtonWord">Daftar</p></button>
         </ion-col>
       </ion-row>
   

@@ -11,8 +11,14 @@ export class OnboardingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  public skip: boolean = true;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad OnboardingPage');
+  }
+
+  start(){
+    this.skip = false;
   }
 
   gotoLogin(){

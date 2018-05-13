@@ -8,7 +8,8 @@ import { LombaDetailPage } from '../lomba-detail/lomba-detail';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+  ) {
 
   }
 

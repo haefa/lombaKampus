@@ -1,5 +1,7 @@
-<ion-header>
-    <button ion-button float-right clear (click)="gotoLogin()">Skip</button>
+<ion-header *ngIf = "skip">
+  <div>
+      <button ion-button float-right clear (click)="gotoLogin()">Skip</button>
+  </div>
 </ion-header>
   
 
@@ -23,7 +25,7 @@
         <p>Pilih kategori lomba favoritmu.</p>
       </ion-slide>
 
-    <ion-slide>
+    <ion-slide (click)="start()">
       <img src="assets/icon/chat.png" class="slide-image" no-lines/>
       <h2 class="title">Personal Chat</h2>
       <p>Lakukan tanya-jawab langsung dengan panitia penyelenggara.</p>
@@ -33,6 +35,7 @@
       <img src="assets/icon/maps.png" class="slide-image" no-lines/>
       <h2 class="title">Maps</h2>
       <p>Temukan lokasi lombamu secepatnya.</p>
+      <button class="Button" color="primary" ion-button block (click)="gotoLogin()"><p class="ButtonWord">Login</p></button>
     </ion-slide>
 
 

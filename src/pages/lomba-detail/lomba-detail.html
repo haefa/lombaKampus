@@ -6,34 +6,64 @@
 
 
 <ion-content padding>
-  <ion-grid center>
+  <ion-grid>
     <ion-row>
-      <ion-col col-6>
-        <ion-card>
-            <img src="assets/imgs/photo1.jpg" class="Item"/>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6>
-          <h2>Data Mining</h2>
+      <ion-item text-center>
+          <h1>Data Mining</h1>
           <p><strong>JOINTS 2018</strong></p>
-          <p>Universitas Gajah Mada</p>
-      </ion-col>
+      </ion-item>
+
+      <ion-card>
+          <img src="assets/imgs/photo1.jpg" class="Item"/>
+      </ion-card>
+  
+
       <ion-col col-12>
-        <p>Menyukai semua hal. Tertarik dengan segala benda yang ada di semesta,
-          percaya dengan semua orang yang ada di dunia.
+        <ion-badge item-start color="primary"><font size="3">Description</font></ion-badge>
+        <p>Data Mining merupakan kompetisi pengolahan data khusunya big data 
+          yang kemudian divisualkan hingga menjadi solusi atau insight dari 
+          sebuah permasalahan analisis data. Kompetisi ini mengharapkan peserta 
+          untuk mampu melakukan proses Data Mining terhadap Big Data yang tersedia. 
+          Kompetisi ini bisa diikuti oleh tim yang terdiri 2-3 orang dari Universitas yang sama.
         </p>
       </ion-col>
 
+      <ion-col col-12>
+        <ion-badge item-start><font size="3">Terms & Condition</font></ion-badge>
+        <div id="list">
+          <ul>
+            <li>Setiap peserta merupakan siswa dari SD-SMA/sederajat yang terdaftar di Indonesia.</li>
+            <li>Setiap tim terdiri dari 1-3 orang yang berasal dari sekolah yang sama.</li>
+            <li>Setiap peserta hanya boleh terdaftar kedalam satu tim.</li>
+            <li>Siswa kelas 12 yang telah menyelesaikan Ujian Nasional tetap diperbolehkan mengikuti PCS JOINTS 2018.</li>
+            <li>Setiap peserta harus menyelesaikan administrasi pendaftaran terakhir pada tanggal 10 April 2018.</li>
+          </ul>
+        </div>
+      </ion-col>
+
+      <ion-col col-12>
+        <ion-badge item-start color="primary"><font size="3">Prize Pool</font></ion-badge>
+        <ul>
+          <li>1st Place: Rp3.500.000,00</li>
+          <li>2nd Place: Rp2.500.000,00</li>
+          <li>3rd Place: Rp1.500.000,00</li>        
+        </ul>
+      </ion-col>
+
+      <ion-item></ion-item>
+
       <ion-item>
-        <p><strong>Beranjak</strong></p>
+        <h2><strong>JOINTS 2018</strong></h2>
         <ion-col col-3 item-start>
-          <img src="assets/imgs/icon.png" class="ava"/>
+          <img src="assets/imgs/photo1.jpg" class="ava"/>
         </ion-col>
-        <p>Jalansaja, Jagungrebus</p>
+        <h3>Universitas Gadjah Mada</h3>
+        <p>+6287739866664 (Adira)</p>
       </ion-item>
-      <br>
-      <button *ngIf="!show" ion-button full (click)="presentConfirm()">Pinjamkan</button>
+
+      <button *ngIf="!show" ion-button full (click)="presentConfirm()">Register</button>
+      <button *ngIf="!show" ion-button full (click)="presentConfirm()">Chat</button>
     </ion-row>
-</ion-grid>
+  </ion-grid>
 </ion-content>
 
