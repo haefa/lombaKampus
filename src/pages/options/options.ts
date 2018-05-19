@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
 import { EditProfilePage } from '../editprofile/editprofile';
 import { ChangePasswordPage } from '../changepassword/changepassword';
 import { LoginPage } from '../login/login';
 import { Data } from '../../provider/data';
+import { OnboardingPage } from '../onboarding/onboarding';
 
 @Component({
   selector: 'page-options',
@@ -15,6 +16,7 @@ export class OptionsPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public alertCtrl: AlertController,
+    public app: App,
     private data: Data
   ) {
   }
@@ -39,7 +41,7 @@ export class OptionsPage {
           handler: () => {
             console.log('Agree clicked');
             this.data.logout();  //hapus storage cache local  
-            this.navCtrl.setRoot(LoginPage);
+            this.app.getRootNav().setRoot(LoginPage);
           }
         }
       ]

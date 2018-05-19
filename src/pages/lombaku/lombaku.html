@@ -24,7 +24,7 @@
           <img src="assets/icon/calendar.png" class="image" no-lines/>
           <p class="paragraph">Uh-oh! You haven't registered in any <b>lomba</b> yet.</p>
           <ion-row center>
-              <button ion-button icon-left>
+              <button ion-button icon-left (click)="joinLomba()">
                   <ion-icon name="add"></ion-icon>
                      Start Participate
               </button>    
@@ -35,7 +35,7 @@
           <img src="assets/icon/calendar.png" class="image" no-lines/>
           <p class="paragraph">Uh-oh! You haven't make any <b>lomba</b> yet.</p>
           <ion-row center>
-              <button ion-button icon-left>
+              <button ion-button icon-left (click)="createLomba()">
                   <ion-icon name="add"></ion-icon>
                      Create Lomba
               </button>    

@@ -17,6 +17,7 @@ import { OptionsPage } from '../pages/options/options';
 import { ChangePasswordPage } from '../pages/changepassword/changepassword';
 import { LombakuPage } from '../pages/lombaku/lombaku';
 import { LombaDetailPage } from '../pages/lomba-detail/lomba-detail';
+import { CreateLombaPage } from '../pages/createlomba/createlomba';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -41,7 +42,9 @@ import { Data } from '../provider/data';
     OptionsPage,
     ChangePasswordPage,
     LombakuPage,
-    LombaDetailPage
+    LombaDetailPage,
+    CreateLombaPage,
+   
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,9 @@ import { Data } from '../provider/data';
     OptionsPage,
     ChangePasswordPage,
     LombakuPage,
-    LombaDetailPage
+    LombaDetailPage,
+    CreateLombaPage
+    
   ],
   providers: [
     StatusBar,

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
-import { TabsPage } from '../tabs/tabs';
 import { Http } from '@angular/http';
 import { Data } from '../../provider/data';
+import { TabsPage } from '../tabs/tabs';
 
 
 @Component({

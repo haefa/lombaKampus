@@ -64,7 +64,7 @@
         </ion-item>
         <p ion-text [hidden]="jk.valid || submitted == false" color="danger" padding-left>
             Choose one
-          </p>
+        </p>
 
   
         <ion-item>
@@ -78,10 +78,10 @@
         <ion-item>
             <ion-label floating ><p class="Head">NIM</p></ion-label>
             <ion-textarea class="Head2"  [(ngModel)]="nim" name="nim" type="text" #nrp="ngModel" required autosize></ion-textarea>
-          </ion-item>
-          <p class="Warning" ion-text [hidden]="nrp.valid || submitted == false" color="danger" padding-left>
+        </ion-item>
+        <p class="Warning" ion-text [hidden]="nrp.valid || submitted == false" color="danger" padding-left>
             NIM must be filled
-          </p>
+        </p>
       </ion-list>
   
       <ion-row responsive-sm>

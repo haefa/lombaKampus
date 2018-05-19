@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class Data {
-  public BASE_URL = 'http://149.28.34.102';
+  public BASE_URL = 'http://149.28.32.85:4444';
 
   public HAS_LOGGED_IN = 'status_login';
   

@@ -1,0 +1,52 @@
+<!--
+  Generated template for the CreatelombaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar  color="primary">
+    <ion-title>Create Lomba</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+          <ion-label stacked color="dark"><font size="3">Title</font></ion-label>
+          <ion-input [(ngModel)]="title" type="text" placeholder="Enter a specific title" value="{{title}}" required></ion-input>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label stacked color="dark"><font size="3">Description</font></ion-label>
+          <ion-textarea placeholder="Enter a description" value="{{description}}" required></ion-textarea>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label stacked color="dark"><font size="3">Terms & Condition</font></ion-label>
+          <ion-textarea placeholder="Enter terms and condition" [(ngModel)]="terms" value="{{terms}}" required></ion-textarea>
+      </ion-item>	
+
+      <ion-item>
+          <ion-label stacked color="dark"><font size="3">Prize Pool</font></ion-label>
+          <ion-textarea placeholder="Enter the prize pool" [(ngModel)]="prize" value="{{prize}}" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked color="dark"><font size="3">Campus</font></ion-label>
+          <ion-input [(ngModel)]="campus" type="text" placeholder="Enter a campus" value="{{campus}}" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked color="dark"><font size="3">Phone number</font></ion-label>
+          <ion-input [(ngModel)]="telephone" type="text" placeholder="Enter a phone number" value="{{telephone}}" required></ion-input>
+      </ion-item>
+    
+      <ion-item no-lines></ion-item>
+
+  </ion-list>
+
+</ion-content>
