@@ -50,7 +50,7 @@ export class LoginPage {
       if(response.status==1){    
         this.data.logout();
         
-        this.data.login(response.data,"user");//ke lokal
+        this.data.login(response.id_user,"user");//ke lokal
         
         this.navCtrl.setRoot(TabsPage);
         loading.dismiss();

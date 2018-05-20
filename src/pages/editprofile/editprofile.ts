@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { Data } from '../../provider/data';
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -9,27 +11,61 @@ import { ProfilePage } from '../profile/profile';
 })
 export class EditProfilePage {
   //deklarasi variabel
+  email: string;
+  jenis_kelamin: number;
+  nama: string;
+  nomor_ktm: string;
+  universitas: string;
+  id_user: number;
   submitted = false;
 
-  name: string;
-  nim: string
-  email: string;
-  telephone: number;
-  campus: string;
-  isValidFormTelephone = true;
-
+  userData: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public loadingCtrl: LoadingController
-  ){}
+    public loadCtrl: LoadingController,
+    private data: Data,
+    public http: Http
+  ){
+    this.data.getData().then((data)=>
+    {
+    console.log(data);
+    this.id_user =  data;
+    this.getProfile();
+    })
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
   }
 
+  getProfile(){
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
+    let input = {
+      id_user: this.id_user, 
+    };
+    this.http.post(this.data.BASE_URL+"/getProfile",input).subscribe(data => {
+      let response = data.json();
+      if(response.status!=0){    
+        this.userData = response;
+        this.universitas = response.universitas;
+        this.nomor_ktm = response.nomor_ktm;
+        this.email = response.email;
+        this.nama = response.nama;
+      console.log(this.userData); 
+      }
+      loading.dismiss();
+    });
+  }
+
   gotoProfilePage() {
-    let loader = this.loadingCtrl.create({
+    let loader = this.loadCtrl.create({
       content: "Please wait..",
       duration: 300
     });
@@ -37,10 +73,4 @@ export class EditProfilePage {
     this.navCtrl.setRoot(ProfilePage);
   }
 
-  checkTelephone(){
-    console.log(this.telephone);
-    if(this.telephone<0){
-      this.isValidFormTelephone = false;
-    }
-  }
 }

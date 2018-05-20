@@ -21,7 +21,7 @@
 		
 	  <ion-card-content>
 	    <ion-card-title text-center>
-        <h2><b> Profile Name</b></h2>
+        <h2><b> {{nama}}</b></h2>
         <button ion-button small (click)="gotoEditProfile()">Edit Profile</button>
 	      </ion-card-title>
     </ion-card-content>
@@ -31,13 +31,13 @@
     <ion-item>
         <ion-icon name="md-briefcase" color="primary" item-left></ion-icon>
           <font size="3">NIM</font>
-          <p>G64150018</p>
+          <p>{{nomor_ktm}}</p>
     </ion-item>
 
 	  <ion-item>
 	    <ion-icon name="mail" color="primary" item-left></ion-icon>
 	     <font size="3">Email</font>
-	     <p>hafidlotulfahmad@gmail.com</p>
+	     <p>{{email}}</p>
 	  </ion-item>
 
 	  <ion-item>
@@ -55,7 +55,7 @@
 	  <ion-item  text-wrap>
 	    <ion-icon name="md-school" color="primary" item-left></ion-icon>
 	     <font size="3">Campus</font>
-	     <p>Bogor Institute of Agriculture</p>
+	     <p>{{universitas}}</p>
 	  </ion-item>
   </ion-list>
 
