@@ -2,47 +2,13 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Notification</ion-title>
+    <ion-title>Messages</ion-title>
   </ion-navbar>
-
-  <ion-segment [(ngModel)]="notification">
-      <ion-segment-button value="activity">
-        <div class="Head2">Activity</div>
-      </ion-segment-button>
-      <ion-segment-button value="messages">
-        <div class="Head2">Messages</div>
-      </ion-segment-button>
-  </ion-segment>
 
 </ion-header>
 
 
 <ion-content padding>
-  
-  <div [ngSwitch]="notification">
-    <ion-list *ngSwitchCase="'activity'">
-      <ion-list>
-        <ion-item>
-          <ion-avatar item-start item-right>
-            <img src="assets/imgs/photo1.jpg">
-          </ion-avatar>
-          <h2><strong>Deadline Submission File Apps Innovation</strong></h2>
-          <h4>JOINTS 2018</h4>
-          <p>3 days remaining...</p>
-        </ion-item>
-
-        <ion-item>
-          <ion-avatar item-start item-right>
-            <img src="assets/imgs/photo1.jpg">
-          </ion-avatar>
-          <h2><strong>Data Mining</strong></h2>
-          <p>30 April 2018</p>
-        </ion-item>
-
-      </ion-list>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'messages'">
         <ion-list>
             <ion-item>
               <ion-avatar item-start item-right>
@@ -60,11 +26,9 @@
               <p>Deadline penyisihan kapan?</p>
             </ion-item>
     
-          </ion-list>
-          <ion-fab bottom right>
-        <button ion-fab (click)="newChat()"> <ion-icon name="add"></ion-icon></button>
-     </ion-fab>
-    </ion-list>
-  </div>
+        </ion-list>
+        <ion-fab bottom right>
+          <button ion-fab (click)="newChat()"> <ion-icon name="add"></ion-icon></button>
+        </ion-fab>
   
 </ion-content>

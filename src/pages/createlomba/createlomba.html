@@ -15,37 +15,79 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-item>
-          <ion-label stacked color="dark"><font size="3">Title</font></ion-label>
-          <ion-input [(ngModel)]="title" type="text" placeholder="Enter a specific title" value="{{title}}" required></ion-input>
-      </ion-item>
-    
-      <ion-item>
-          <ion-label stacked color="dark"><font size="3">Description</font></ion-label>
-          <ion-textarea placeholder="Enter a description" value="{{description}}" required></ion-textarea>
-      </ion-item>
-    
-      <ion-item>
-          <ion-label stacked color="dark"><font size="3">Terms & Condition</font></ion-label>
-          <ion-textarea placeholder="Enter terms and condition" [(ngModel)]="terms" value="{{terms}}" required></ion-textarea>
-      </ion-item>	
-
-      <ion-item>
-          <ion-label stacked color="dark"><font size="3">Prize Pool</font></ion-label>
-          <ion-textarea placeholder="Enter the prize pool" [(ngModel)]="prize" value="{{prize}}" required></ion-textarea>
+      
+      <ion-item text-left><font size="4"><b>Lomba Information</b></font>
+        <p>Add detail information for your Lomba.</p> 
       </ion-item>
 
       <ion-item>
-          <ion-label stacked color="dark"><font size="3">Campus</font></ion-label>
-          <ion-input [(ngModel)]="campus" type="text" placeholder="Enter a campus" value="{{campus}}" required></ion-input>
+          <ion-label floating color="dark"><font size="3">Lomba's Title</font></ion-label>
+          <ion-input [(ngModel)]="title" type="text" value="{{title}}" required></ion-input>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label floating color="dark"><font size="3">Description</font></ion-label>
+          <ion-textarea value="{{description}}" spellcheck="false" autocapitalize="off"
+          autosize text-wrap required></ion-textarea>
       </ion-item>
 
       <ion-item>
-          <ion-label stacked color="dark"><font size="3">Phone number</font></ion-label>
-          <ion-input [(ngModel)]="telephone" type="text" placeholder="Enter a phone number" value="{{telephone}}" required></ion-input>
+        <ion-label color="dark"><font size="3">Category</font></ion-label>
+        <ion-select [(ngModel)]="category" required>
+            <ion-option value="daming">Data Mining</ion-option>
+            <ion-option value="business">Business Idea</ion-option>
+            <ion-option value="apps">Apps Development</ion-option>
+            <ion-option value="ui">UI/UX Design</ion-option>
+            <ion-option value="hack">Capture the Flag</ion-option>
+        </ion-select>
       </ion-item>
-    
+
+      <ion-item>
+          <ion-label floating color="dark"><font size="3">Campus</font></ion-label>
+          <ion-input [(ngModel)]="campus" type="text" value="{{campus}}" required></ion-input>
+      </ion-item>
+
       <ion-item no-lines></ion-item>
+      <ion-item text-left><font size="4"><b>Registration</b></font>
+        <p>Add Registration information for your Lomba.</p>    
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="dark">Start Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="startdate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="dark">End Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="enddate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating color="dark"><font size="3">Maximum Members</font></ion-label>
+          <ion-input [(ngModel)]="members" type="number" value="{{members}}" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating color="dark"><font size="3">Fee</font></ion-label>
+          <ion-input [(ngModel)]="fee" type="number" value="{{fee}}" required></ion-input>
+      </ion-item>
+
+      <ion-item no-lines></ion-item>
+      <ion-item no-lines text-left><font size="4"><b>Poster</b></font>
+        <p>Add your poster, it will appear on your Lomba.</p>
+      </ion-item>
+ 
+      
+      <ion-item>
+          <button ion-button small>Browse Photo</button>
+      </ion-item>
+
+      <ion-item no-lines></ion-item>
+      <ion-row responsive-sm>
+        <ion-col>
+          <button class="Button" color="primary" ion-button block (click)="createLomba()" type="submit"><p class="ButtonWord">Create</p></button>
+        </ion-col>
+      </ion-row>
 
   </ion-list>
 

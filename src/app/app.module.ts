@@ -18,6 +18,7 @@ import { ChangePasswordPage } from '../pages/changepassword/changepassword';
 import { LombakuPage } from '../pages/lombaku/lombaku';
 import { LombaDetailPage } from '../pages/lomba-detail/lomba-detail';
 import { CreateLombaPage } from '../pages/createlomba/createlomba';
+import { RegisterLombaPage } from '../pages/registerlomba/registerlomba';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,6 +45,7 @@ import { Data } from '../provider/data';
     LombakuPage,
     LombaDetailPage,
     CreateLombaPage,
+    RegisterLombaPage
    
   ],
   imports: [
@@ -69,7 +71,8 @@ import { Data } from '../provider/data';
     ChangePasswordPage,
     LombakuPage,
     LombaDetailPage,
-    CreateLombaPage
+    CreateLombaPage,
+    RegisterLombaPage
     
   ],
   providers: [

@@ -28,7 +28,7 @@ export class OptionsPage {
   signOut(){
     let confirm = this.alertCtrl.create({
       title: 'Sign Out?',
-      message: 'are you sure want to Sign Out?',
+      message: 'Are you sure that you want to Sign Out?',
       buttons: [
         {
           text: 'Cancel',

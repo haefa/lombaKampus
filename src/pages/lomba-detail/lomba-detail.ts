@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RegisterLombaPage } from '../registerlomba/registerlomba';
 
 @Component({
   selector: 'page-lomba-detail',
@@ -12,6 +13,10 @@ export class LombaDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LombaDetailPage');
+  }
+
+  registerLomba() {
+    this.navCtrl.push(RegisterLombaPage);
   }
 
 }
