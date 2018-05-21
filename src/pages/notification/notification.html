@@ -9,26 +9,54 @@
 
 
 <ion-content padding>
-        <ion-list>
-            <ion-item>
-              <ion-avatar item-start item-right>
-                <img src="assets/imgs/photo1.jpg">
-              </ion-avatar>
-              <h2><strong>API Joints</strong></h2>
-              <p>Apakah boleh menggunakan teknologi x?</p>
-            </ion-item>
-    
-            <ion-item>
-              <ion-avatar item-start item-right>
-                <img src="assets/imgs/photo1.jpg">
-              </ion-avatar>
-              <h2><strong>Data Mining Joints</strong></h2>
-              <p>Deadline penyisihan kapan?</p>
-            </ion-item>
-    
-        </ion-list>
-        <ion-fab bottom right>
-          <button ion-fab (click)="newChat()"> <ion-icon name="add"></ion-icon></button>
-        </ion-fab>
+
+    <div class="messageCard" (click)="chat()">
+      <ion-grid no-padding>          
+        <ion-row no-padding>
+          <ion-col col-2 no-padding>
+            <!-- <img *ngIf="data.img" class="pictHeader" src="http://156.67.218.250:81{{data.img}}"/> -->
+            <img  class="pictMessage" src="assets/imgs/photo1.jpg" />             
+          </ion-col>
+          <ion-col col-9 no-padding class="contentMessage">
+            <ion-row no-padding>
+              <ion-col col-10 no-padding >
+                <span class="nameMessage">JOINTS 2018</span>            
+              </ion-col>
+              <ion-col col-2 no-padding text-right>
+                <span class="timeMessage">10:30</span>              
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <span class="previewMessage">Lorem ipsum dolor sit amet, testes adipiscing elit</span>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="messageCard" (click)="chat()">
+      <ion-grid no-padding>          
+        <ion-row no-padding>
+          <ion-col col-2 no-padding>
+            <!-- <img *ngIf="data.img" class="pictHeader" src="http://156.67.218.250:81{{data.img}}"/> -->
+            <img  class="pictMessage" src="assets/imgs/photo1.jpg" />
+          </ion-col>
+          <ion-col col-9 no-padding class="contentMessage">
+            <ion-row no-padding>
+              <ion-col col-10 no-padding >
+                <span class="nameMessage">IT TODAY 2018</span>
+              </ion-col>
+              <ion-col col-2 no-padding text-right>
+                <span class="timeMessage">10:30</span>
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <span class="previewMessage">Lorem ipsum dolor sit amet, testes adipiscing elit</span>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>    
+
   
 </ion-content>

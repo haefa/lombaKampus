@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RegisterLombaPage } from '../registerlomba/registerlomba';
+import { ChatPage } from '../chat/chat';
 
 @Component({
   selector: 'page-lomba-detail',
@@ -17,6 +18,10 @@ export class LombaDetailPage {
 
   registerLomba() {
     this.navCtrl.push(RegisterLombaPage);
+  }
+
+  chat() {
+    this.navCtrl.push(ChatPage);
   }
 
 }
