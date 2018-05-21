@@ -18,6 +18,10 @@ export class Data {
     this.storage.set('user_data', data);
     this.storage.set('role', role);
   };
+
+  profile(data: any){
+    this.storage.set('user_profile', data);
+  }
   
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
@@ -41,5 +45,9 @@ export class Data {
       return value;
     });
   }
-
+  getProfile() {
+    return this.storage.get('user_profile').then((value) => {
+      return value;
+    });
+  }
 }

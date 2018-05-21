@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { EditProfilePage } from '../editprofile/editprofile';
 import { OptionsPage } from '../options/options';
 import { Data } from '../../provider/data';
@@ -30,9 +30,25 @@ export class ProfilePage {
     this.data.getData().then((data)=>
     {
     console.log(data);
-    this.id_user =  data;
+    this.nama = data.nama;
+    this.id_user =  data.id_user;
+    this.email = data.email;
+    this.nomor_ktm = data.no_ktm;
+    this.universitas = data.universitas;
+    this.jenis_kelamin = data.jenis_kelamin;
 
-    this.getProfile();
+    // if(this.email==undefined){
+      //this.getProfile();
+    // }
+    // else{
+    //   this.data.getProfile().then((data)=>
+    // {
+    //   this.email = data.email;
+    //   this.nomor_ktm = data.nomor_ktm;
+    //   this.universitas = data.universitas;
+    //   this.jenis_kelamin = data.jenis_kelamin;
+    // })
+    // }
     })
 
 }
@@ -56,7 +72,7 @@ export class ProfilePage {
         this.email = response.email;
         this.nama = response.nama;
       console.log(this.userData); 
-        
+      this.data.profile(response);//ke lokal
       }
       loading.dismiss();
     });

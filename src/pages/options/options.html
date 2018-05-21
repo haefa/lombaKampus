@@ -13,7 +13,7 @@
     <ion-item text-left><font size="4"><b>Account</b></font></ion-item>
     <ion-item text-left (click)="gotoEditProfilePage()"><font size="3">Edit Profile</font></ion-item>
     <ion-item text-left (click)="gotoChangePasswordPage()"><font size="3">Change Password</font></ion-item>
-    <ion-item text-left><font size="3" color="gray">Delete Account</font></ion-item>
+    <ion-item text-left><font size="3" color="gray" (click)="deleteAccount()">Delete Account</font></ion-item>
     <ion-item text-left><font size="3" color="gray" (click)="signOut()">Log out</font></ion-item>
 
 

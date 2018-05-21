@@ -27,7 +27,7 @@
     
       <ion-item>
           <ion-label floating color="dark"><font size="3">Description</font></ion-label>
-          <ion-textarea value="{{description}}" spellcheck="false" autocapitalize="off"
+          <ion-textarea [(ngModel)]="description" value="{{description}}" spellcheck="false" autocapitalize="off"
           autosize text-wrap required></ion-textarea>
       </ion-item>
 

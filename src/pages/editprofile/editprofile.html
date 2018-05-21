@@ -3,7 +3,7 @@
   <ion-navbar color="primary">
     <ion-title>Edit Profile</ion-title>
     <ion-buttons end>
-        <button ion-button (click)="gotoProfilePage()"icon-only>
+        <button ion-button (click)="editProfile()"icon-only>
           <ion-icon name="md-checkmark"></ion-icon>          
         </button>
     </ion-buttons>
@@ -23,12 +23,12 @@
         
         <ion-item>
             <ion-label stacked color="dark"><font size="3">Name</font></ion-label>
-            <ion-input [(ngModel)]="name" type="text" placeholder="Name" value="{{nama}}" required></ion-input>
+            <ion-input [(ngModel)]="nama" type="text" placeholder="Name" value="{{nama}}" required></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label stacked color="dark"><font size="3">NIM</font></ion-label>
-            <ion-input [(ngModel)]="nim" type="text" placeholder="NIM" value="{{nomor_ktm}}" required></ion-input>
+            <ion-input [(ngModel)]="nomor_ktm" type="text" placeholder="NIM" value="{{nomor_ktm}}" required></ion-input>
         </ion-item>
       
         <ion-item>
@@ -43,7 +43,7 @@
 
         <ion-item>
             <ion-label stacked color="dark"><font size="3">Campus</font></ion-label>
-            <ion-input placeholder="Campus" [(ngModel)]="campus" type="text" value="{{universitas}}" required></ion-input>
+            <ion-input placeholder="universitas" [(ngModel)]="campus" type="text" value="{{universitas}}" required></ion-input>
         </ion-item>
       
         <ion-item no-lines></ion-item>

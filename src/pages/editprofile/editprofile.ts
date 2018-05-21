@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
@@ -12,12 +12,11 @@ import { Http } from '@angular/http';
 export class EditProfilePage {
   //deklarasi variabel
   email: string;
-  jenis_kelamin: number;
   nama: string;
   nomor_ktm: string;
   universitas: string;
   id_user: number;
-  submitted = false;
+
 
   userData: any;
   constructor(
@@ -25,13 +24,17 @@ export class EditProfilePage {
     public navParams: NavParams,
     public loadCtrl: LoadingController,
     private data: Data,
-    public http: Http
+    public http: Http,
+    public alertCtrl: AlertController
   ){
     this.data.getData().then((data)=>
     {
     console.log(data);
-    this.id_user =  data;
-    this.getProfile();
+    this.id_user =  data.id_user;
+    this.email = data.email;
+    this.nama = data.nama;
+    this.universitas = data.universitas;
+    this.nomor_ktm = data.nomor_ktm;
     })
 
   }
@@ -40,28 +43,45 @@ export class EditProfilePage {
     console.log('ionViewDidLoad EditProfilePage');
   }
 
-  getProfile(){
-    let loading = this.loadCtrl.create({
-      content: 'memuat..'
-    });
+  editProfile(){
+    if(this.nama && this.email  && this.universitas && this.nomor_ktm) {
 
-    loading.present();
+      let loading = this.loadCtrl.create({
+        content: 'memuat..'
+      });
 
-    let input = {
-      id_user: this.id_user, 
-    };
-    this.http.post(this.data.BASE_URL+"/getProfile",input).subscribe(data => {
+      loading.present();
+
+      //apiPost
+      let input = {
+        nama :this.nama,
+        email: this.email, 
+        universitas: this.universitas,
+        no_ktm: this.nomor_ktm,
+        id_user: this.id_user
+      };
+      console.log(input);
+
+      this.http.post(this.data.BASE_URL+"/updateAkun",input).subscribe(data => {
       let response = data.json();
-      if(response.status!=0){    
-        this.userData = response;
-        this.universitas = response.universitas;
-        this.nomor_ktm = response.nomor_ktm;
-        this.email = response.email;
-        this.nama = response.nama;
-      console.log(this.userData); 
+      console.log(response); 
+      if(response.status==1){         
+        this.navCtrl.setRoot(ProfilePage);  
+        this.data.login(input,"user");    
+        loading.dismiss();
       }
-      loading.dismiss();
-    });
+      else {
+        loading.dismiss();
+          let alert = this.alertCtrl.create({
+            title: 'Failed Editing Profile',      
+            buttons: ['OK']
+          });
+          alert.present();      
+          loading.dismiss();
+      }    
+      });
+      //apiPost  
+    }
   }
 
   gotoProfilePage() {
