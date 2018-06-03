@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
+import { Data } from '../../provider/data';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-notification',
@@ -8,16 +10,50 @@ import { ChatPage } from '../chat/chat';
 })
 export class NotificationPage {
   notification: string = "activity";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  id_user: number;
+  chatData: any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private data: Data,
+    public http: Http,
+    public alertCtrl: AlertController,
+    public loadCtrl: LoadingController
+  ) {
+    this.data.getData().then((data=>{
+      this.id_user = data.id_user;
+      this.getChat();
+    }
+    ))
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificationPage');
   }
 
-  chat() {
-    this.navCtrl.push(ChatPage);
+  chatDetails(chat){
+    this.navCtrl.push(ChatPage, chat);
   }
 
+  getChat(){
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
+    let input = {
+      id_user: this.id_user, 
+    };
+    this.http.post(this.data.BASE_URL+"/semuaChat",input).subscribe(data => {
+      let response = data.json();
+      if(response.status!=0){    
+        this.chatData = response.id_user;
+        console.log(this.chatData);
+      }
+      loading.dismiss();
+    });
+  }
 
 }

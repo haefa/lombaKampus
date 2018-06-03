@@ -34,7 +34,7 @@ export class EditProfilePage {
     this.email = data.email;
     this.nama = data.nama;
     this.universitas = data.universitas;
-    this.nomor_ktm = data.nomor_ktm;
+    this.nomor_ktm = data.no_ktm;
     })
 
   }

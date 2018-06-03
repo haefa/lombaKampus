@@ -9,8 +9,12 @@
 
 
 <ion-content padding>
+  <div *ngIf='!chatData'>
+    <p>tak adaa</p>
+  </div>
 
-    <div class="messageCard" (click)="chat()">
+  <div *ngIf='chatData'>
+    <div *ngFor="let chat of chatData" class="messageCard" (click)="chatDetails(chat)">
       <ion-grid no-padding>          
         <ion-row no-padding>
           <ion-col col-2 no-padding>
@@ -20,7 +24,7 @@
           <ion-col col-9 no-padding class="contentMessage">
             <ion-row no-padding>
               <ion-col col-10 no-padding >
-                <span class="nameMessage">JOINTS 2018</span>            
+                <span class="nameMessage">{{chat}}</span>            
               </ion-col>
               <ion-col col-2 no-padding text-right>
                 <span class="timeMessage">10:30</span>              
@@ -32,31 +36,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </div>
-
-    <div class="messageCard" (click)="chat()">
-      <ion-grid no-padding>          
-        <ion-row no-padding>
-          <ion-col col-2 no-padding>
-            <!-- <img *ngIf="data.img" class="pictHeader" src="http://156.67.218.250:81{{data.img}}"/> -->
-            <img  class="pictMessage" src="assets/imgs/photo1.jpg" />
-          </ion-col>
-          <ion-col col-9 no-padding class="contentMessage">
-            <ion-row no-padding>
-              <ion-col col-10 no-padding >
-                <span class="nameMessage">IT TODAY 2018</span>
-              </ion-col>
-              <ion-col col-2 no-padding text-right>
-                <span class="timeMessage">10:30</span>
-              </ion-col>
-            </ion-row>
-            <ion-row no-padding>
-              <span class="previewMessage">Lorem ipsum dolor sit amet, testes adipiscing elit</span>
-            </ion-row>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>    
-
+    </div> 
+  </div>
   
 </ion-content>

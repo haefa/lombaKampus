@@ -32,14 +32,30 @@
       </ion-list>
   
       <ion-list *ngSwitchCase="'committee'">
-          <img src="assets/icon/calendar.png" class="image" no-lines/>
-          <p class="paragraph">Uh-oh! You haven't make any <b>lomba</b> yet.</p>
-          <ion-row center>
+          <img *ngIf="!lombah" src="assets/icon/calendar.png" class="image" no-lines/>
+          <p *ngIf="!lombah" class="paragraph">Uh-oh! You haven't make any <b>lomba</b> yet.</p>
+          <ion-row center *ngIf="!lombah">
               <button ion-button icon-left (click)="createLomba()">
                   <ion-icon name="add"></ion-icon>
                      Create Lomba
               </button>    
           </ion-row>
+
+        <div *ngFor="let lomba of lombah">
+          <ion-card *ngIf="lombah"   >
+            <ion-list>
+              <ion-item>
+                  <ion-avatar item-start item-right>
+                      <img src="assets/icon/lombaKampus.png">
+                    </ion-avatar>
+                <h2><strong>{{lomba.nama_lomba}}</strong></h2>   
+                <p>{{lomba.tanggal_ditutup}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+
+
       </ion-list>
     </div>
     
