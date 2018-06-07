@@ -20,6 +20,7 @@ import { LombaDetailPage } from '../pages/lomba-detail/lomba-detail';
 import { CreateLombaPage } from '../pages/createlomba/createlomba';
 import { RegisterLombaPage } from '../pages/registerlomba/registerlomba';
 import { ChatPage } from '../pages/chat/chat';
+import { UploadPhotoPage } from '../pages/uploadphoto/uploadphoto';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -47,7 +48,8 @@ import { Data } from '../provider/data';
     LombaDetailPage,
     CreateLombaPage,
     RegisterLombaPage,
-    ChatPage
+    ChatPage,
+    UploadPhotoPage
    
   ],
   imports: [
@@ -75,7 +77,8 @@ import { Data } from '../provider/data';
     LombaDetailPage,
     CreateLombaPage,
     RegisterLombaPage,
-    ChatPage
+    ChatPage,
+    UploadPhotoPage
     
   ],
   providers: [

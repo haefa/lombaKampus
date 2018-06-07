@@ -31,7 +31,7 @@ export class CreateLombaPage {
     this.data.getData().then((data)=>
     {
     console.log(data);
-    this.id_user =  data;
+    this.id_user =  data.id_user;
     })
   }
 
@@ -68,7 +68,7 @@ export class CreateLombaPage {
       else {
         loading.dismiss();
           let alert = this.alertCtrl.create({
-            title: 'Failed Editing Profile',      
+            title: 'Failed Creating Lomba',      
             buttons: ['OK']
           });
           alert.present();      

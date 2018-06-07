@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { ChatPage } from '../chat/chat';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-notification',
@@ -54,6 +55,10 @@ export class NotificationPage {
       }
       loading.dismiss();
     });
+  }
+
+  findLomba(){
+    this.navCtrl.push(HomePage);
   }
 
 }

@@ -17,7 +17,7 @@
 
 
     <div *ngFor="let data of chatData" id="chatMessages">
-      <div *ngIf='data.id_pengirim == id_user' class="message"><!--  | reverse; let last = last -->
+      <div *ngIf='data.id_pengirim == id_user' class="message" (press)="delete(data.id_chat)"><!--  | reverse; let last = last -->
         <div class="innerMessage messageRight">
           <div class="messageContent">{{data.pesan}}</div>
           <div text-right class="messageTimeRight">09.48 AM</div>

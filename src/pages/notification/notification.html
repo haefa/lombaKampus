@@ -10,7 +10,14 @@
 
 <ion-content padding>
   <div *ngIf='!chatData'>
-    <p>tak adaa</p>
+    <img src="assets/icon/chat.png" class="image" no-lines/>
+    <p class="paragraph">You didn't have any <b>messages</b> right now.</p>
+    <ion-row center>
+        <button ion-button icon-left (click)="findLomba()">
+          <ion-icon name="add"></ion-icon>
+          Start Chatting
+        </button>
+    </ion-row>
   </div>
 
   <div *ngIf='chatData'>

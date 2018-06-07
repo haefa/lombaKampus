@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController, AlertController } from 'io
 import { ProfilePage } from '../profile/profile';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
+import { UploadPhotoPage } from '../uploadphoto/uploadphoto';
 
 
 @Component({
@@ -91,6 +92,10 @@ export class EditProfilePage {
     });
     loader.present();
     this.navCtrl.setRoot(ProfilePage);
+  }
+
+  uploadphoto() {
+    this.navCtrl.push(UploadPhotoPage);
   }
 
 }

@@ -7,6 +7,7 @@ import { Http } from '@angular/http';
   selector: 'page-chat',
   templateUrl: 'chat.html',
 })
+
 export class ChatPage {
   id_user: number;
   id_chat: number;
@@ -29,7 +30,7 @@ export class ChatPage {
     }
     ))
   }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
   }
@@ -77,4 +78,37 @@ export class ChatPage {
     });
   }
 
+  delete(data){
+    let confirm = this.alertCtrl.create({
+      title: 'Delete chat?',
+      message: 'Are you sure want to delete?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Yes clicked');
+        
+            let input = {
+              id_chat: data
+            };
+            this.http.post(this.data.BASE_URL+"/hapusChat",input).subscribe(data => {
+              let response = data.json();
+              if(response.status!=0){    
+                this.getDetail();
+              }
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+  
+  
 }

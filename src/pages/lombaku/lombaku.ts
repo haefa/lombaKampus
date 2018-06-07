@@ -56,4 +56,36 @@ export class LombakuPage {
     });
   }
 
+  delete(data, data2){
+    let confirm = this.alertCtrl.create({
+      title: 'Delete lomba?',
+      message: 'Are you sure want to delete '+ data2 + '?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Yes clicked');
+        
+            let input = {
+              id_lomba: data
+            };
+            this.http.post(this.data.BASE_URL+"/hapusLomba",input).subscribe(data => {
+              let response = data.json();
+              if(response.status!=0){    
+                this.getLomba();
+              }
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
 }

@@ -1,0 +1,38 @@
+<!--
+  Generated template for the UploadphotoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Upload Photo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <img src="assets/icon/group.png" class="image" no-lines/>
+    <ion-item no-lines></ion-item>
+    <ion-col col-12 text-center>
+      <ion-title color="primary">UPLOAD PHOTO</ion-title>
+      <p>Upload your photo, maximum <b>2MB</b>.</p>
+
+      <ion-item>
+        <input type="file" accept="image/*" capture="camera"  id="fileInput"/>
+        <label for="fileInput" icon-only ion-button></label>
+      </ion-item>
+
+      <ion-item no-lines></ion-item>
+      
+      <ion-row center>
+        <button ion-button block (click)="upload()">Upload</button>    
+      </ion-row>
+    
+    </ion-col>
+  </ion-list>
+
+</ion-content>

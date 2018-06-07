@@ -1,0 +1,17 @@
+page-uploadphoto {
+    .image{
+        width:auto; /* you can use % */
+        height: 40vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25vw;
+    }
+
+    .paragraph{
+        justify-content: center;
+        text-align: center;
+        color: gray;
+    }
+
+}
