@@ -11,6 +11,7 @@ import { Http } from '@angular/http';
 export class ChatPage {
   id_user: number;
   id_chat: number;
+  user_name: string;
   chatData: any;
 
   constructor(public navCtrl: NavController, 
@@ -21,7 +22,8 @@ export class ChatPage {
     public loadCtrl: LoadingController
   ) {
     let temp = this.navParams.data;
-    this.id_chat = temp;
+    this.id_chat = temp[0];
+    this.user_name = temp[1];
 
     this.data.getData().then((data=>{
       this.id_user = data.id_user;

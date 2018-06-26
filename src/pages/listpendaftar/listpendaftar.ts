@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditLombaPage } from '../editlomba/editlomba';
+import { TeamPendaftarPage } from '../teampendaftar/teampendaftar';
 
 /**
  * Generated class for the ListpendaftarPage page.
@@ -24,6 +25,10 @@ export class ListPendaftarPage {
 
   editLomba() {
     this.navCtrl.push(EditLombaPage);
+  }
+
+  getTeam() {
+    this.navCtrl.push(TeamPendaftarPage);
   }
 
 }

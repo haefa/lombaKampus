@@ -1,29 +1,24 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ListPendaftarPage } from '../listpendaftar/listpendaftar';
 
 /**
- * Generated class for the EditlombaPage page.
+ * Generated class for the TeampendaftarPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-editlomba',
-  templateUrl: 'editlomba.html',
+  selector: 'page-teampendaftar',
+  templateUrl: 'teampendaftar.html',
 })
-export class EditLombaPage {
+export class TeamPendaftarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditlombaPage');
-  }
-
-  saveLomba() {
-    this.navCtrl.push(ListPendaftarPage);
+    console.log('ionViewDidLoad TeampendaftarPage');
   }
 
 }

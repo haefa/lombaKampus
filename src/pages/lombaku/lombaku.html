@@ -21,14 +21,28 @@
     
     <div [ngSwitch]="lomba">
       <ion-list *ngSwitchCase="'participants'">
-          <img src="assets/icon/calendar.png" class="image" no-lines/>
-          <p class="paragraph">Uh-oh! You haven't registered in any <b>lomba</b> yet.</p>
+          <img *ngIf="!joined" src="assets/icon/calendar.png" class="image" no-lines/>
+          <p *ngIf="!joined" class="paragraph">Uh-oh! You haven't registered in any <b>lomba</b> yet.</p>
           <ion-row center>
               <button ion-button icon-left (click)="joinLomba()">
                   <ion-icon name="add"></ion-icon>
                      Start Participate
               </button>    
           </ion-row>
+
+          <!-- <div *ngFor="let lomba of joined">
+            <ion-card *ngIf="joined"   >
+              <ion-list>
+                <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listpendaftar()">
+                  <ion-avatar item-start item-right>
+                    <img src="assets/icon/lombaKampus.png">
+                  </ion-avatar>
+                  <h2><strong>{{lomba.nama_lomba}}</strong></h2>   
+                  <p>{{lomba.tanggal_ditutup}}</p>
+                </ion-item>
+              </ion-list>
+            </ion-card>
+          </div> -->
       </ion-list>
   
       <ion-list *ngSwitchCase="'committee'">

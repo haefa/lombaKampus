@@ -8,11 +8,59 @@
 
   <ion-navbar color="primary">
     <ion-title>Edit Lomba</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="saveLomba()"icon-only>
+          <ion-icon name="md-checkmark"></ion-icon>          
+        </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-list>
+      
+        <ion-item text-left><font size="4"><b>Lomba Information</b></font>
+          <p>Edit detail information for your Lomba.</p> 
+        </ion-item>
+  
+        <ion-item>
+            <ion-label stacked color="dark"><font size="3">Lomba's Title</font></ion-label>
+            <ion-input [(ngModel)]="title" type="text" value="{{title}}" required></ion-input>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label stacked color="dark"><font size="3">Description</font></ion-label>
+            <ion-textarea [(ngModel)]="description" value="{{description}}" spellcheck="false" autocapitalize="off"
+            autosize text-wrap required></ion-textarea>
+        </ion-item>
+  
+        <ion-item no-lines></ion-item>
+        <ion-item text-left><font size="4"><b>Registration</b></font>
+          <p>Edit Registration information for your Lomba.</p>    
+        </ion-item>
+  
+        <ion-item>
+            <ion-label color="dark">Start Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="startdate"></ion-datetime>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label color="dark">End Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="enddate"></ion-datetime>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label stacked color="dark"><font size="3">Maximum Members</font></ion-label>
+            <ion-input [(ngModel)]="members" type="number" value="{{members}}" required></ion-input>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label stacked color="dark"><font size="3">Fee</font></ion-label>
+            <ion-input [(ngModel)]="fee" type="number" value="{{fee}}" required></ion-input>
+        </ion-item>
+      
+      </ion-list>
 
 </ion-content>

@@ -23,6 +23,7 @@ import { ChatPage } from '../pages/chat/chat';
 import { UploadPhotoPage } from '../pages/uploadphoto/uploadphoto';
 import { EditLombaPage } from '../pages/editlomba/editlomba';
 import { ListPendaftarPage } from '../pages/listpendaftar/listpendaftar';
+import { TeamPendaftarPage } from '../pages/teampendaftar/teampendaftar';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -56,7 +57,8 @@ import { File } from '@ionic-native/file';
     ChatPage,
     UploadPhotoPage,
     EditLombaPage,
-    ListPendaftarPage
+    ListPendaftarPage,
+    TeamPendaftarPage
    
   ],
   imports: [
@@ -87,7 +89,8 @@ import { File } from '@ionic-native/file';
     ChatPage,
     UploadPhotoPage,
     EditLombaPage,
-    ListPendaftarPage
+    ListPendaftarPage,
+    TeamPendaftarPage
     
   ],
   providers: [

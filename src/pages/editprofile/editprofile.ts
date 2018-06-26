@@ -189,13 +189,13 @@ export class EditProfilePage {
     // api
     const fileTransfer: FileTransferObject = this.transfer.create();
     
-    let options :FileUploadOptions = {
+    let file :FileUploadOptions = {
       fileKey: 'img',
       fileName: this.id_user,
       mimeType: "image/jpeg",
     }
 
-    fileTransfer.upload(data, this.data.BASE_URL+"/upload/profil/{{this.id_user}}.jpg",options)
+    fileTransfer.upload(data, this.data.BASE_URL+"/upload/profil/"+this.id_user+".jpg",file)
       .then((data) => {
 
 

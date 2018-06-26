@@ -124,14 +124,12 @@ export class UploadPhotoPage {
     
     let file: FileUploadOptions = {
       fileKey: 'img',
-      fileName: this.id_user,
+      fileName: '1',
       mimeType: "image/jpeg",
     }
 
-    fileTransfer.upload(data, this.data.BASE_URL+"/upload/profil/{{this.id_user}}.jpg",file)
+    fileTransfer.upload(data, this.data.BASE_URL+"/upload/profil/"+this.id_user+".jpg",file)
       .then((data) => {
-
-
 
       this.navCtrl.setRoot(LoginPage);
       
@@ -150,7 +148,6 @@ export class UploadPhotoPage {
         ]
       });
         alert.present();    
-      console.log("tak error");
       // this.ionViewWillEnter();
     }, (err) => {
       console.log("er-0",err);

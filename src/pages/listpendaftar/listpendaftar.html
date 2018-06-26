@@ -15,31 +15,32 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title text-center>
-          <h1><b>Lomba 1</b></h1>
-          <button ion-button icon-left (click)="editLomba()">
-            <ion-icon name="create"></ion-icon>
-            Edit Lomba
-          </button>    
-        </ion-card-title>
-      </ion-card-content>
-    </ion-card>
+    <ion-item>
+      <h1><strong>LOMBA 1</strong></h1>
+      <ion-col col-3 item-start>
+        <img src="assets/imgs/photo1.jpg" class="ava"/>
+      </ion-col>
+      <p>Institut Pertanian Bogor</p>
+      <button ion-button icon-left (click)="editLomba()">
+        Edit Lomba
+      </button> 
+    </ion-item>
+
+    <br>
 
     <ion-item>
       <h2>Team 1</h2>
-      <button ion-button clear item-end>View</button>
+      <button ion-button clear item-end (click)="getTeam()">View</button>
     </ion-item>
 
     <ion-item>
       <h2>Team 2</h2>
-      <button ion-button clear item-end>View</button>
+      <button ion-button clear item-end (click)="getTeam()">View</button>
     </ion-item>
 
     <ion-item>
       <h2>Team 3</h2>
-      <button ion-button clear item-end>View</button>
+      <button ion-button clear item-end (click)="getTeam()">View</button>
     </ion-item>
 
 
