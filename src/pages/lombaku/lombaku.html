@@ -44,7 +44,7 @@
         <div *ngFor="let lomba of lombah">
           <ion-card *ngIf="lombah"   >
             <ion-list>
-              <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)">
+              <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listpendaftar()">
                   <ion-avatar item-start item-right>
                       <img src="assets/icon/lombaKampus.png">
                     </ion-avatar>

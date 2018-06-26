@@ -42,6 +42,10 @@ export class ChatPage {
 
     loading.present();
 
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
     let input = {
       id_1: this.id_user,
       id_2: this.id_chat

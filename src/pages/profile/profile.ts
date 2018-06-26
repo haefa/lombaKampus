@@ -60,6 +60,10 @@ export class ProfilePage {
 
     loading.present();
 
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
     let input = {
       id_user: this.id_user, 
     };

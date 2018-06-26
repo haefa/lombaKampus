@@ -38,6 +38,10 @@ export class LoginPage {
 
       loading.present();
 
+      setTimeout(() => {
+        loading.dismiss();
+      }, 5000);
+
       //apiPost
       let input = {
         email: this.email, 

@@ -21,6 +21,8 @@ import { CreateLombaPage } from '../pages/createlomba/createlomba';
 import { RegisterLombaPage } from '../pages/registerlomba/registerlomba';
 import { ChatPage } from '../pages/chat/chat';
 import { UploadPhotoPage } from '../pages/uploadphoto/uploadphoto';
+import { EditLombaPage } from '../pages/editlomba/editlomba';
+import { ListPendaftarPage } from '../pages/listpendaftar/listpendaftar';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,6 +30,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../provider/data';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { Camera } from '@ionic-native/camera';
+import { File } from '@ionic-native/file';
 
 
 @NgModule({
@@ -49,7 +54,9 @@ import { Data } from '../provider/data';
     CreateLombaPage,
     RegisterLombaPage,
     ChatPage,
-    UploadPhotoPage
+    UploadPhotoPage,
+    EditLombaPage,
+    ListPendaftarPage
    
   ],
   imports: [
@@ -78,14 +85,20 @@ import { Data } from '../provider/data';
     CreateLombaPage,
     RegisterLombaPage,
     ChatPage,
-    UploadPhotoPage
+    UploadPhotoPage,
+    EditLombaPage,
+    ListPendaftarPage
     
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Data
+    Data,
+    FileTransfer,
+    FileTransferObject,
+    Camera,
+    File
   ]
 })
 export class AppModule {}

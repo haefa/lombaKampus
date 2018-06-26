@@ -22,7 +22,7 @@
       <ion-title color="primary">TEAM</ion-title>
 
       <ion-item>
-          <ion-input type="text" placeholder="Your Team"></ion-input>
+          <ion-input [(ngModel)]="team_name" value="{{team_name}}" type="text" placeholder="Your Team"></ion-input>
       </ion-item>
 
       <p>You can't change your <b>team name</b> anymore.</p>

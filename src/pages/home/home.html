@@ -6,11 +6,6 @@
 
 <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item *ngFor="let item of items">
-        {{ lomba }}
-      </ion-item>
-    </ion-list>
 
     <!-- Card 1 -->
     <ion-card>
@@ -27,6 +22,7 @@
                 <p>Data Mining</p>
                 <p><strong>JOINTS 2018</strong></p>
               </ion-col>
+
               <ion-col col-6>
                 <img src="assets/imgs/photo1.jpg" class="Item"/>
                 <p>Coming Soon</p>

@@ -42,7 +42,10 @@ export class ChangePasswordPage {
       });
 
       loading.present();
-
+      
+      setTimeout(() => {
+        loading.dismiss();
+      }, 5000);
       //apiPost
       let input = {
         id_user: this.id_user,

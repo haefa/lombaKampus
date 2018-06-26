@@ -40,7 +40,10 @@ export class RegisterPage {
       });
 
       loading.present();
-
+      
+      setTimeout(() => {
+        loading.dismiss();
+      }, 5000);
       //apiPost
       let input = {
         nama :this.nama,
