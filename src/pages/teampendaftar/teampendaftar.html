@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item text-center style="border-bottom: 2px solid grey">
+    <ion-item text-center>
       <h1><strong>TEAM NAME</strong></h1>
       <h3>on <strong>AppsToday</strong></h3>
     </ion-item>
@@ -24,19 +24,19 @@
       <div *ngFor="let member of members">
           <ul>
               <li>{{member.nama}}</li>
-              <button icon-left>
-                <ion-icon name="add"></ion-icon>
-                Add members.
-              </button>        
-            </ul>      
+            </ul>
+            <button icon-left>
+              <ion-icon name="add"></ion-icon>
+              Add members
+            </button>                  
       </div>
     </ion-item>
     
-    <ion-item text-left><font size="4"><b>Pembayaran</b></font>
-      <p>Pembayaran belum dilunasi.</p>
-      <button ion-button>Upload Bukti Pembayaran</button>
+    <ion-item text-left><font size="4"><b>Payment</b></font>
+      <p>You haven't completed your payment.</p>
+      <br>
+      <button ion-button>Upload Payment Receipt</button>
     </ion-item>
 
   </ion-list>
-
 </ion-content>

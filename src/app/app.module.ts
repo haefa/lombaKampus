@@ -24,6 +24,7 @@ import { UploadPhotoPage } from '../pages/uploadphoto/uploadphoto';
 import { EditLombaPage } from '../pages/editlomba/editlomba';
 import { ListPendaftarPage } from '../pages/listpendaftar/listpendaftar';
 import { TeamPendaftarPage } from '../pages/teampendaftar/teampendaftar';
+import { ListJoinedPage } from '../pages/listjoined/listjoined';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -58,7 +59,8 @@ import { File } from '@ionic-native/file';
     UploadPhotoPage,
     EditLombaPage,
     ListPendaftarPage,
-    TeamPendaftarPage
+    TeamPendaftarPage,
+    ListJoinedPage
    
   ],
   imports: [
@@ -90,7 +92,8 @@ import { File } from '@ionic-native/file';
     UploadPhotoPage,
     EditLombaPage,
     ListPendaftarPage,
-    TeamPendaftarPage
+    TeamPendaftarPage,
+    ListJoinedPage
     
   ],
   providers: [
