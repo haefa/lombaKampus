@@ -21,7 +21,8 @@
         </ion-item>
 
         <ion-item text-left><font size="4"><b>Payment</b></font>
-          <p>You haven't completed your payment.</p>
+          <img src="http://149.28.32.85:4444/getPhoto/lomba/{{id_lomba}}_{{id_adm}}.jpg" class="profile">
+          <p *ngIf="!payment">You haven't completed your payment.</p>
           <br>
           <button ion-button (click)="upload()">Upload Payment Receipt</button>
         </ion-item>

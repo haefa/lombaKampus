@@ -21,7 +21,9 @@ export class ListJoinedPage {
   id_lomba: number;
   id_adm: number;
   id_user: any;
+  title: string;
 
+  payment: false;
   members: any;
 
   constructor(
@@ -38,17 +40,19 @@ export class ListJoinedPage {
   ) {
     this.data.getData().then((data=>{
       this.id_user = data.id_user;
-      console.log("id:",this.id_user);
+      this.getStatusBayar();
     }
+    
     ))
 
-
+    console.log("pertana : ", this.id_user);
 
     let temp = this.navParams.data;
     this.id_lomba = temp.id_lomba;
     this.id_adm = temp.id_adm;
-    this.getStatusBayar();
-    //this.getAnggota();
+    this.title = temp.nama_lomba;
+//    this.getStatusBayar();
+    this.getAnggota();
   }
 
   ionViewDidLoad() {
@@ -191,7 +195,7 @@ export class ListJoinedPage {
     this.http.post(this.data.BASE_URL+"/getAnggota", input).subscribe(data => {
       let response = data.json();
       this.members = response.list;
-      console.log(response);
+      console.log("member",response);
     });
   }
 
@@ -212,10 +216,9 @@ export class ListJoinedPage {
       id_lomba: this.id_lomba,
     };
 
-    console.log("input:",this.id_user);
-
     this.http.post(this.data.BASE_URL+"/getStatusBayar", input).subscribe(data => {
       let response = data.json();
+      //console.log("output:",response);
     });
   }
 
@@ -248,5 +251,6 @@ export class ListJoinedPage {
     });
     alert.present();
   }
+
 
 }

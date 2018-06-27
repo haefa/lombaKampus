@@ -37,7 +37,7 @@ export class ProfilePage {
     this.nomor_ktm = data.no_ktm;
     this.universitas = data.universitas;
     this.jenis_kelamin = data.jenis_kelamin;
-    
+    //this.getPhoto();
     })
 
 }
@@ -48,6 +48,7 @@ export class ProfilePage {
     };
     this.http.get(this.data.BASE_URL+"/getPhoto/profil/"+this.id_user+".jpg").subscribe(data => {
       let response = data.json();
+      console.log("foto",response);
         this.data.photo(response);//ke lokal
     });
   }
