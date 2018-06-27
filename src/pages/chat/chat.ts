@@ -40,6 +40,7 @@ export class ChatPage {
     console.log('ionViewDidLoad ChatPage');
   }
 
+
   getDetail(){
     let loading = this.loadCtrl.create({
       content: 'memuat..'

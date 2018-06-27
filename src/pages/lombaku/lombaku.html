@@ -33,7 +33,7 @@
           <div *ngFor="let join of joined">
             <ion-card *ngIf="joined"   >
               <ion-list>
-                <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listJoined(lomba)">
+                <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listJoined(join)">
                   <ion-avatar item-start item-right>
                     <img src="assets/icon/lombaKampus.png">
                   </ion-avatar>

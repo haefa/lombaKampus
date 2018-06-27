@@ -17,23 +17,23 @@
     <ion-list>
         <ion-item text-center >
           <h1><strong>TEAM NAME</strong></h1>
-          <h3>on <strong>AppsToday</strong></h3>
+          <h3>on <strong>{{this.title}}</strong></h3>
         </ion-item>
 
         <ion-item text-left><font size="4"><b>Payment</b></font>
           <p>You haven't completed your payment.</p>
           <br>
-          <button ion-button>Upload Payment Receipt</button>
+          <button ion-button (click)="upload()">Upload Payment Receipt</button>
         </ion-item>
 
         <ion-item text-left><font size="4"><b>Members</b></font>
-          <ul>
-            <li>Hafidlotul Fatimah Ahmad</li>
-            <li>Mochamad Suryono</li>
-            <li>Mohammad Romano Diansyah</li>
-            <li>Jodhi Lesmana Putri</li>
-          </ul>
-          <button ion-button icon-left>
+          <div *ngFor="let member of members">
+              <ul>
+                  <li>{{member.nama}}</li>
+                </ul>      
+          </div>
+          <br>
+          <button ion-button icon-left (click)="addMembers()">
             <ion-icon name="add"></ion-icon>
             Add members
           </button>        

@@ -99,7 +99,7 @@ export class LombakuPage {
       if(response.length == 0){
         this.joined = undefined;
       }
-        console.log(response);
+        console.log("lomba saya:",response);
     });
   }
 
@@ -139,8 +139,9 @@ export class LombakuPage {
     confirm.present();
   }
 
-  listJoined(lomba) {
-    this.navCtrl.push(ListJoinedPage, lomba);
+  listJoined(data) {
+    this.navCtrl.push(ListJoinedPage, data);
+    //console.log("data: ", data);
   }
 
 }
