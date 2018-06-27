@@ -5,6 +5,7 @@ import { CreateLombaPage } from '../createlomba/createlomba';
 import { Http } from '@angular/http';
 import { Data } from '../../provider/data';
 import { ListPendaftarPage } from '../listpendaftar/listpendaftar';
+import { ListJoinedPage } from '../listjoined/listjoined';
 
 @Component({
   selector: 'page-lombaku',
@@ -136,6 +137,10 @@ export class LombakuPage {
       ]
     });
     confirm.present();
+  }
+
+  listJoined(lomba) {
+    this.navCtrl.push(ListJoinedPage, lomba);
   }
 
 }
