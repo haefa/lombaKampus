@@ -20,7 +20,7 @@
       <div *ngIf='data.id_pengirim == id_user' class="message" (press)="delete(data.id_chat)"><!--  | reverse; let last = last -->
         <div class="innerMessage messageRight">
           <div class="messageContent">{{data.pesan}}</div>
-          <div text-right class="messageTimeRight">09.48 AM</div>
+          <div text-right class="messageTimeRight" format="HH:mm">{{data.tanggal | date: "dd MMM, H:mm" }}</div>
         </div>
         <!-- {{last ? scrollToBottom() : ''}} -->
       </div>
@@ -29,7 +29,7 @@
         <img  class="pict" src="assets/imgs/photo1.jpg" />
         <div class="innerMessage messageLeft">
           <div class="messageContent">{{data.pesan}}</div>
-          <div text-left class="messageTimeLeft">09.48 AM</div>
+          <div text-left class="messageTimeLeft">{{data.tanggal | date: "dd MMM, H:mm" }}</div>
         </div>
         <!-- {{last ? scrollToBottom() : ''}} -->
       </div>

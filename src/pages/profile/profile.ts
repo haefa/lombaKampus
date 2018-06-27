@@ -18,6 +18,7 @@ export class ProfilePage {
   universitas: string;
   id_user: number;
 
+  photo: any;
   userData: any;
 
   constructor(public navCtrl: NavController, 
@@ -36,22 +37,20 @@ export class ProfilePage {
     this.nomor_ktm = data.no_ktm;
     this.universitas = data.universitas;
     this.jenis_kelamin = data.jenis_kelamin;
-
-    // if(this.email==undefined){
-      //this.getProfile();
-    // }
-    // else{
-    //   this.data.getProfile().then((data)=>
-    // {
-    //   this.email = data.email;
-    //   this.nomor_ktm = data.nomor_ktm;
-    //   this.universitas = data.universitas;
-    //   this.jenis_kelamin = data.jenis_kelamin;
-    // })
-    // }
+    
     })
 
 }
+
+  getPhoto(){
+    var input = {
+      id_user: this.id_user
+    };
+    this.http.get(this.data.BASE_URL+"/getPhoto/profil/"+this.id_user+".jpg").subscribe(data => {
+      let response = data.json();
+        this.data.photo(response);//ke lokal
+    });
+  }
 
   getProfile(){
     let loading = this.loadCtrl.create({

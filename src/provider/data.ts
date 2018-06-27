@@ -22,11 +22,16 @@ export class Data {
   profile(data: any){
     this.storage.set('user_profile', data);
   }
+
+  photo(data: any){
+    this.storage.set('user_photo', data);
+  }
   
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('user_data');
     this.storage.remove('role');
+    this.storage.remove('user_photo');
   };
 
   isLogin(){
@@ -47,6 +52,12 @@ export class Data {
   }
   getProfile() {
     return this.storage.get('user_profile').then((value) => {
+      return value;
+    });
+  }
+
+  getPhoto(){
+    return this.storage.get('user_photo').then((value)=> {
       return value;
     });
   }

@@ -200,7 +200,7 @@ export class EditProfilePage {
 
 
 
-      this.navCtrl.setRoot(LoginPage);
+      //this.navCtrl.setRoot(LoginPage);
       
       loading.dismiss();
 

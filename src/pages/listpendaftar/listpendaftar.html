@@ -6,45 +6,37 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Participants</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <h1><strong>LOMBA 1</strong></h1>
-      <ion-col col-3 item-start>
-        <img src="assets/imgs/photo1.jpg" class="ava"/>
-      </ion-col>
-      <p>Institut Pertanian Bogor</p>
-      <button ion-button icon-left (click)="editLomba()">
-        Edit Lomba
-      </button> 
-    </ion-item>
-
-    <br>
-
-    <ion-item>
-      <h2>Team 1</h2>
-      <button ion-button clear item-end (click)="getTeam()">View</button>
-    </ion-item>
-
-    <ion-item>
-      <h2>Team 2</h2>
-      <button ion-button clear item-end (click)="getTeam()">View</button>
-    </ion-item>
-
-    <ion-item>
-      <h2>Team 3</h2>
-      <button ion-button clear item-end (click)="getTeam()">View</button>
-    </ion-item>
-
-
-
-  </ion-list>
-
-</ion-content>
+    <ion-navbar color="primary">
+      <ion-title>Participants</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list>
+      <ion-item>
+        <h1><strong>{{this.title}}</strong></h1>
+        <ion-col col-3 item-start>
+          <img src="http://149.28.32.85:4444/getPhoto/lomba/{{id_user}}_{{this.title}}.jpg" class="ava"/>
+        </ion-col>
+        <p>{{this.place}}</p>
+        <button ion-button icon-left (click)="editLomba(lomba)">
+          Edit Lomba
+        </button> 
+      </ion-item>
+  
+      <br>
+  
+      <div *ngFor="let team of teams">
+          <ion-item>
+              <h2>{{team.nama_tim}}</h2>
+              <button ion-button clear item-end (click)="getTeam(team.id_adm)">View</button>
+            </ion-item>
+      </div>
+  
+  
+    </ion-list>
+  
+  </ion-content>
+  

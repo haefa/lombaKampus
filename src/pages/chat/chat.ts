@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',
@@ -11,6 +13,7 @@ import { Http } from '@angular/http';
 export class ChatPage {
   id_user: number;
   id_chat: number;
+  tanggal: any;
   user_name: string;
   chatData: any;
 
@@ -56,7 +59,7 @@ export class ChatPage {
       let response = data.json();
       if(response.status!=0){    
         this.chatData = response;
-        console.log(response);
+        console.log("tanggal-",response);
       }
       loading.dismiss();
     });

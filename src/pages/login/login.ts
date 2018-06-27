@@ -23,12 +23,13 @@ export class LoginPage {
     public alertCtrl: AlertController,
     private data: Data
   ) {
-    this.testApi();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+
 
   signIn(){
     if(this.email && this.password){

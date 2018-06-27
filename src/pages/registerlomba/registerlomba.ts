@@ -12,7 +12,7 @@ import { LombakuPage } from '../lombaku/lombaku';
 export class RegisterLombaPage {
   team_name: string;
   id_user: number;
-  id_lomba = 13;
+  id_lomba = 10;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 

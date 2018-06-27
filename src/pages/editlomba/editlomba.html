@@ -25,10 +25,10 @@
           <p>Edit detail information for your Lomba.</p> 
         </ion-item>
   
-        <ion-item>
+        <!-- <ion-item>
             <ion-label stacked color="dark"><font size="3">Lomba's Title</font></ion-label>
             <ion-input [(ngModel)]="title" type="text" value="{{title}}" required></ion-input>
-        </ion-item>
+        </ion-item> -->
       
         <ion-item>
             <ion-label stacked color="dark"><font size="3">Description</font></ion-label>
@@ -43,7 +43,7 @@
   
         <ion-item>
             <ion-label color="dark">Start Date</ion-label>
-            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="startdate"></ion-datetime>
+            <ion-datetime displayFormat="MM/DD/YYYY" min="startdate" [(ngModel)]="startdate"></ion-datetime>
         </ion-item>
   
         <ion-item>

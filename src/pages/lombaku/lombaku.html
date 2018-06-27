@@ -30,19 +30,20 @@
               </button>    
           </ion-row>
 
-          <!-- <div *ngFor="let lomba of joined">
+          <div *ngFor="let join of joined">
             <ion-card *ngIf="joined"   >
               <ion-list>
                 <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listpendaftar()">
                   <ion-avatar item-start item-right>
                     <img src="assets/icon/lombaKampus.png">
                   </ion-avatar>
-                  <h2><strong>{{lomba.nama_lomba}}</strong></h2>   
-                  <p>{{lomba.tanggal_ditutup}}</p>
+                  <h2><strong>{{join.nama_lomba}}</strong></h2>   
+                  <p>{{join.deadline}}</p>
                 </ion-item>
               </ion-list>
             </ion-card>
-          </div> -->
+          </div>
+
       </ion-list>
   
       <ion-list *ngSwitchCase="'committee'">
@@ -58,9 +59,9 @@
         <div *ngFor="let lomba of lombah">
           <ion-card *ngIf="lombah"   >
             <ion-list>
-              <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listpendaftar()">
+              <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listPendaftar(lomba)">
                   <ion-avatar item-start item-right>
-                      <img src="assets/icon/lombaKampus.png">
+                      <img src="http://149.28.32.85:4444/getPhoto/lomba/{{id_user}}_{{lomba.nama_lomba}}.jpg">
                     </ion-avatar>
                 <h2><strong>{{lomba.nama_lomba}}</strong></h2>   
                 <p>{{lomba.tanggal_ditutup}}</p>

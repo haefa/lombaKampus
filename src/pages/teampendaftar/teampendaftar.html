@@ -21,16 +21,15 @@
     </ion-item>
 
     <ion-item text-left><font size="4"><b>Members</b></font>
-      <ul>
-        <li>Hafidlotul Fatimah Ahmad</li>
-        <li>Mochamad Suryono</li>
-        <li>Mohammad Romano Diansyah</li>
-        <li>Jodhi Lesmana Putri</li>
-        <button icon-left>
-          <ion-icon name="add"></ion-icon>
-          Add members.
-        </button>        
-      </ul>
+      <div *ngFor="let member of members">
+          <ul>
+              <li>{{member.nama}}</li>
+              <button icon-left>
+                <ion-icon name="add"></ion-icon>
+                Add members.
+              </button>        
+            </ul>      
+      </div>
     </ion-item>
     
     <ion-item text-left><font size="4"><b>Pembayaran</b></font>

@@ -10,6 +10,7 @@ import { Data } from '../../provider/data';
 })
 export class HomePage {
   id_user: number;
+  photo: any;
   lombaData: any;
 
   constructor(
@@ -21,15 +22,15 @@ export class HomePage {
   ) {
     this.data.getData().then((data=>{
       this.id_user = data.id_user;
-    this.getLomba();
-    } ))
+      this.getLomba();
+      } ))
   }
 
   gotoLombaDetail(){
     this.navCtrl.push(LombaDetailPage);
   }
-
   
+
   getLomba(){
     var input = {
       id_user: this.id_user

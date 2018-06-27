@@ -14,6 +14,12 @@ export class LombakuPage {
   lomba: string = "participants";
 
   lombah: any;
+  joined: any;
+
+  id_joined: number;
+  joined_title: string;
+  joined_date: any;
+
   id_lomba: number;
   nama_lomba: string;
   deksripsi: string;
@@ -32,6 +38,7 @@ export class LombakuPage {
     this.data.getData().then((data=>{
       this.id_user = data.id_user;
     this.getLomba();
+    this.getJoined();
     } ))
   }
 
@@ -64,12 +71,39 @@ export class LombakuPage {
     this.http.post(this.data.BASE_URL+"/getLombaId", input).subscribe(data => {
       let response = data.json();
       this.lombah = response;
+      if(response.length == 0){
+        this.lombah = undefined;
+      }
+        console.log("lombah ",this.lombah);
+    });
+  }
+
+  getJoined(){
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
+    var input = {
+      id_anggota: this.id_user
+    };
+    this.http.post(this.data.BASE_URL+"/getLombaSaya", input).subscribe(data => {
+      let response = data.json();
+      this.joined = response;
+      if(response.length == 0){
+        this.joined = undefined;
+      }
         console.log(response);
     });
   }
 
-  listpendaftar() {
-    this.navCtrl.push(ListPendaftarPage);
+  listPendaftar(lomba) {
+    this.navCtrl.push(ListPendaftarPage, lomba);
   }
 
   delete(data, data2){
