@@ -54,7 +54,7 @@ export class NotificationPage {
     this.http.post(this.data.BASE_URL+"/semuaChat",input).subscribe(data => {
       let response = data.json();
       if(response.status!=0){    
-        this.chatData = response.id_user;
+        this.chatData = response.list;
         console.log(this.chatData);
       }
       loading.dismiss();

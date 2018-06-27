@@ -11,6 +11,7 @@ import { Data } from '../../provider/data';
 export class HomePage {
   id_user: number;
   photo: any;
+
   lombaData: any;
 
   constructor(
@@ -22,8 +23,8 @@ export class HomePage {
   ) {
     this.data.getData().then((data=>{
       this.id_user = data.id_user;
-      this.getLomba();
       } ))
+    this.getLomba("daming");
   }
 
   gotoLombaDetail(){
@@ -31,14 +32,14 @@ export class HomePage {
   }
   
 
-  getLomba(){
+  getLomba(kategori){
     var input = {
-      id_user: this.id_user
+      kategori: kategori
     };
-    this.http.post(this.data.BASE_URL+"/getLomba", input).subscribe(data => {
+    this.http.post(this.data.BASE_URL+"/getLombaKategori", input).subscribe(data => {
       let response = data.json();
         this.lombaData = response;
-        console.log(this.lombaData);
+        console.log("lomba",this.lombaData[0]);
     });
   }
 

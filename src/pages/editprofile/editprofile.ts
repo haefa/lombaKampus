@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController, ActionSheetController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController, ActionSheetController, App } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { Data } from '../../provider/data';
 import { Http } from '@angular/http';
@@ -34,7 +34,8 @@ export class EditProfilePage {
     private transfer: FileTransfer,
     private file: File,
     public actionSheetCtrl: ActionSheetController,
-    private camera: Camera
+    private camera: Camera,
+    public app: App
   ){
     this.data.getData().then((data)=>
     {
@@ -212,6 +213,8 @@ export class EditProfilePage {
             text: 'OK',
             handler: () => {
               console.log('Agree clicked');
+              this.data.logout();  //hapus storage cache local  
+              this.app.getRootNav().setRoot(LoginPage);
             }
           }
         ]

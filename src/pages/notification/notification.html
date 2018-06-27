@@ -31,14 +31,14 @@
           <ion-col col-9 no-padding class="contentMessage">
             <ion-row no-padding>
               <ion-col col-10 no-padding >
-                <span class="nameMessage">{{chat[1]}}</span>            
+                <span class="nameMessage">{{chat.nama}}</span>            
               </ion-col>
               <ion-col col-2 no-padding text-right>
-                <span class="timeMessage">10:30</span>              
+                <span class="timeMessage">{{chat.tanggal | date: "H:mm, dd MMM " }}</span>              
               </ion-col>
             </ion-row>
             <ion-row no-padding>
-              <span class="previewMessage">Lorem ipsum dolor sit amet, testes adipiscing elit</span>
+              <span class="previewMessage">{{chat.pesan}}</span>
             </ion-row>
           </ion-col>
         </ion-row>

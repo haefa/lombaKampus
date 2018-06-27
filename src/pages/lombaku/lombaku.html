@@ -38,7 +38,7 @@
                     <img src="assets/icon/lombaKampus.png">
                   </ion-avatar>
                   <h2><strong>{{join.nama_lomba}}</strong></h2>   
-                  <p>{{join.deadline}}</p>
+                  <p>{{join.deadline | date: "MMM dd, yyyy"}}</p>
                 </ion-item>
               </ion-list>
             </ion-card>
@@ -64,7 +64,7 @@
                       <img src="http://149.28.32.85:4444/getPhoto/lomba/{{id_user}}_{{lomba.nama_lomba}}.jpg">
                     </ion-avatar>
                 <h2><strong>{{lomba.nama_lomba}}</strong></h2>   
-                <p>{{lomba.tanggal_ditutup}}</p>
+                <p>{{lomba.tanggal_ditutup | date: "MMM dd, yyyy"}}</p>
               </ion-item>
             </ion-list>
           </ion-card>

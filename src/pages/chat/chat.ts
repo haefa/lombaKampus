@@ -25,8 +25,8 @@ export class ChatPage {
     public loadCtrl: LoadingController
   ) {
     let temp = this.navParams.data;
-    this.id_chat = temp[0];
-    this.user_name = temp[1];
+    this.id_chat = temp.id_user;
+    this.user_name = temp.nama;
 
     this.data.getData().then((data=>{
       this.id_user = data.id_user;
