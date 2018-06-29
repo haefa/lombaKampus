@@ -38,7 +38,7 @@ export class ChangePasswordPage {
   changePass(){
     if(this.pass && (this.newpassword == this.verifypassword)){
       let loading = this.loadCtrl.create({
-        content: 'memuat..'
+        content: 'loading..'
       });
 
       loading.present();

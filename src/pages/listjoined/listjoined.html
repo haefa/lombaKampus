@@ -14,17 +14,29 @@
 
 
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull down to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+      
     <ion-list>
         <ion-item text-center >
-          <h1><strong>TEAM NAME</strong></h1>
+          <h1><strong>{{this.team}}</strong></h1>
           <h3>on <strong>{{this.title}}</strong></h3>
         </ion-item>
 
         <ion-item text-left><font size="4"><b>Payment</b></font>
-          <img src="http://149.28.32.85:4444/getPhoto/lomba/{{id_lomba}}_{{id_adm}}.jpg" class="profile">
-          <p *ngIf="!payment">You haven't completed your payment.</p>
+          <ion-card *ngIf="payment">
+            <img  src="http://149.28.32.85:4444/getPhoto/lomba/{{id_lomba}}_{{id_adm}}.jpg"  class="Item"/>
+        </ion-card>
+        <p *ngIf="conf">Your payment had been confirmed.</p>
+        <p *ngIf="!payment">You haven't completed your payment.</p>
           <br>
-          <button ion-button (click)="upload()">Upload Payment Receipt</button>
+          <button *ngIf="!payment" ion-button (click)="upload()">Upload Payment Receipt</button>
         </ion-item>
 
         <ion-item text-left><font size="4"><b>Members</b></font>

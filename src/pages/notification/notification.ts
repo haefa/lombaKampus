@@ -33,13 +33,40 @@ export class NotificationPage {
     console.log('ionViewDidLoad NotificationPage');
   }
 
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    let loading = this.loadCtrl.create({
+        content: 'loading..'
+    });
+    loading.present();
+    
+    this.data.getData().then((data) => {
+      this.id_user = data.id_user;
+      this.getChat();
+      
+
+    })
+    loading.dismiss();
+
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewWillEnter();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   chatDetails(chat){
     this.navCtrl.push(ChatPage, chat);
   }
 
   getChat(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();

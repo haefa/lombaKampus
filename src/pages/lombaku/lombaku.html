@@ -18,7 +18,15 @@
   
   
   <ion-content padding>
-    
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull down to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
+
     <div [ngSwitch]="lomba">
       <ion-list *ngSwitchCase="'participants'">
           <img *ngIf="!joined" src="assets/icon/calendar.png" class="image" no-lines/>
@@ -35,7 +43,7 @@
               <ion-list>
                 <ion-item (press)="delete(lomba.id_lomba, lomba.nama_lomba)" (click)="listJoined(join)">
                   <ion-avatar item-start item-right>
-                    <img src="assets/icon/lombaKampus.png">
+                   <img src="http://149.28.32.85:4444/getPhoto/lomba/{{join.id_pembuat}}_{{join.nama_lomba}}.jpg">
                   </ion-avatar>
                   <h2><strong>{{join.nama_lomba}}</strong></h2>   
                   <p>{{join.deadline | date: "MMM dd, yyyy"}}</p>

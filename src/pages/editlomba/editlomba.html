@@ -35,7 +35,20 @@
             <ion-textarea [(ngModel)]="description" value="{{description}}" spellcheck="false" autocapitalize="off"
             autosize text-wrap required></ion-textarea>
         </ion-item>
-  
+
+        
+        <ion-item>
+            <ion-label floating color="dark"><font size="3">Terms and Condition</font></ion-label>
+            <ion-textarea [(ngModel)]="tnc" value="{{tnc}}" spellcheck="false" autocapitalize="off"
+            autosize text-wrap required></ion-textarea>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label floating color="dark"><font size="3">Prize</font></ion-label>
+          <ion-textarea [(ngModel)]="prize" value="{{prize}}" spellcheck="false" autocapitalize="off"
+          autosize text-wrap required></ion-textarea>
+      </ion-item>
+      
         <ion-item no-lines></ion-item>
         <ion-item text-left><font size="4"><b>Registration</b></font>
           <p>Edit Registration information for your Lomba.</p>    

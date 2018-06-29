@@ -24,6 +24,7 @@ export class ListPendaftarPage {
   place: string;
 
   teams: any;
+  team: any;
   lomba: any;
 
   constructor(public navCtrl: NavController, 
@@ -53,13 +54,35 @@ export class ListPendaftarPage {
     console.log('ionViewDidLoad ListpendaftarPage');
   }
 
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    let loading = this.loadCtrl.create({
+        content: 'loading..'
+    });
+    loading.present();
+    
+    this.getPendaftar();
+    loading.dismiss();
+
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewWillEnter();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   editLomba(temp) {
     this.navCtrl.push(EditLombaPage, temp);
   }
 
   getPendaftar(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -73,7 +96,7 @@ export class ListPendaftarPage {
     };
     this.http.post(this.data.BASE_URL+"/getPendaftar", input).subscribe(data => {
       let response = data.json();
-      this.teams = response;
+      this.teams = response.list;
       console.log(response);
     });
   }

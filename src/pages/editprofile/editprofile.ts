@@ -21,6 +21,7 @@ export class EditProfilePage {
   nomor_ktm: string;
   universitas: string;
   id_user: any;
+  handphone: string;
 
 
   userData: any;
@@ -45,6 +46,7 @@ export class EditProfilePage {
     this.nama = data.nama;
     this.universitas = data.universitas;
     this.nomor_ktm = data.no_ktm;
+    this.handphone = data.no_hp;
     })
 
   }
@@ -57,24 +59,25 @@ export class EditProfilePage {
     if(this.nama && this.email  && this.universitas && this.nomor_ktm) {
 
       let loading = this.loadCtrl.create({
-        content: 'memuat..'
+        content: 'loading..'
       });
 
       loading.present();
 
       //apiPost
       let input = {
+        id_user: this.id_user,
         nama :this.nama,
         email: this.email, 
         universitas: this.universitas,
         no_ktm: this.nomor_ktm,
-        id_user: this.id_user
+        no_hp: this.handphone
       };
-      console.log(input);
+      console.log("profil : ",input);
 
       this.http.post(this.data.BASE_URL+"/updateAkun",input).subscribe(data => {
       let response = data.json();
-      console.log(response); 
+      console.log("response: ",response); 
       if(response.status==1){         
         this.navCtrl.setRoot(ProfilePage);  
         this.data.login(input,"user");    
@@ -178,7 +181,7 @@ export class EditProfilePage {
     // alert(data);
     // alert("token" + this.token);
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();

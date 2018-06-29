@@ -14,6 +14,7 @@ export class ChatPage {
   id_user: number;
   id_chat: number;
   tanggal: any;
+  message: string;
   user_name: string;
   chatData: any;
 
@@ -28,22 +29,56 @@ export class ChatPage {
     this.id_chat = temp.id_user;
     this.user_name = temp.nama;
 
+    if(temp.id_user == undefined){
+      this.id_chat = temp[0];
+      this.user_name = temp[1];
+    }
+
     this.data.getData().then((data=>{
       this.id_user = data.id_user;
     
     this.getDetail();
     }
     ))
+    console.log("woa",this.id_chat, this.user_name);
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
   }
 
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    let loading = this.loadCtrl.create({
+        content: 'loading..'
+    });
+    loading.present();
+    
+    this.data.getData().then((data=>{
+      this.id_user = data.id_user;
+    
+    this.getDetail();
+    }
+    ))
+    loading.dismiss();
+
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewWillEnter();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+
 
   getDetail(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -66,10 +101,9 @@ export class ChatPage {
     });
   }
 
-  sendChat(data){
-    console.log(data);
+  sendChat(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -77,13 +111,14 @@ export class ChatPage {
     let input = {
       id_pengirim: this.id_user,
       id_penerima: this.id_chat,
-      pesan: data
+      pesan: this.message
     };
     this.http.post(this.data.BASE_URL+"/tambahChat",input).subscribe(data => {
       let response = data.json();
       if(response.status!=0){    
         this.getDetail();
       }
+      this.message = "";
       loading.dismiss();
     });
   }

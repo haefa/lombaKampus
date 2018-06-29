@@ -12,7 +12,7 @@ import { LombakuPage } from '../lombaku/lombaku';
 export class RegisterLombaPage {
   team_name: string;
   id_user: number;
-  id_lomba = 10;
+  id_lomba: number;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -21,6 +21,8 @@ export class RegisterLombaPage {
     private data: Data,
     public http: Http,
   ) {
+    this.id_lomba = this.navParams.data;
+    console.log("idlomba", this.id_lomba);
     this.data.getData().then((data)=>
     {
     console.log(data);
@@ -50,7 +52,7 @@ export class RegisterLombaPage {
             console.log(this.id_lomba);
 
             let loading = this.loadCtrl.create({
-              content: 'memuat..'
+              content: 'loading..'
             });
       
             loading.present();

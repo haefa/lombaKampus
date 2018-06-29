@@ -17,8 +17,9 @@ export class ProfilePage {
   nomor_ktm: string;
   universitas: string;
   id_user: number;
+  handphone: string;
 
-  photo: any;
+  photo = true;
   userData: any;
 
   constructor(public navCtrl: NavController, 
@@ -37,7 +38,8 @@ export class ProfilePage {
     this.nomor_ktm = data.no_ktm;
     this.universitas = data.universitas;
     this.jenis_kelamin = data.jenis_kelamin;
-    //this.getPhoto();
+    this.handphone = data.no_hp;
+    this.getPhoto();
     })
 
 }
@@ -46,16 +48,21 @@ export class ProfilePage {
     var input = {
       id_user: this.id_user
     };
-    this.http.get(this.data.BASE_URL+"/getPhoto/profil/"+this.id_user+".jpg").subscribe(data => {
+    this.http.post(this.data.BASE_URL+"/getPhoto/profil/"+this.id_user+".jpg", input).subscribe(data => {
       let response = data.json();
+      if(response.status == 0){
+        this.photo = false;
+      }
+      else {
+        this.photo = true;
+      }
       console.log("foto",response);
-        this.data.photo(response);//ke lokal
     });
   }
 
   getProfile(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -85,6 +92,39 @@ export class ProfilePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
     console.log(this.data.getData);
+  }
+
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    let loading = this.loadCtrl.create({
+        content: 'loading..'
+    });
+    loading.present();
+    
+    this.data.getData().then((data)=>
+    {
+    console.log(data);
+    this.nama = data.nama;
+    this.id_user =  data.id_user;
+    this.email = data.email;
+    this.nomor_ktm = data.no_ktm;
+    this.universitas = data.universitas;
+    this.jenis_kelamin = data.jenis_kelamin;
+    this.handphone = data.no_hp;
+    //this.getPhoto();
+    })
+    loading.dismiss();
+
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewWillEnter();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   gotoEditProfile(){

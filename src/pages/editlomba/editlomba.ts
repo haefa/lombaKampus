@@ -29,6 +29,8 @@ export class EditLombaPage {
   enddate:any;
   members: number;
   fee: number;
+  tnc: string;
+  prize: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -54,6 +56,8 @@ export class EditLombaPage {
     this.category = temp.kategori;
     this.campus = temp.tempat;
     this.id_lomba = temp.id_lomba;
+    this.tnc = temp.aturan;
+    this.prize = temp.hadiah;
   }
 
   ionViewDidLoad() {
@@ -61,11 +65,12 @@ export class EditLombaPage {
   }
 
   saveLomba() {
-    if(this.title && this.description  && this.category && this.campus && this.startdate && this.enddate && this.members && this.fee
+    if(this.title && this.description  && this.category && this.campus && this.startdate && this.enddate && this.members 
+      && this.fee && this.tnc && this.prize
     ) {
 
       let loading = this.loadCtrl.create({
-        content: 'memuat..'
+        content: 'loading..'
       });
 
       loading.present();
@@ -82,6 +87,8 @@ export class EditLombaPage {
         max_anggota: this.members,
         kategori: this.category,
         id_user: this.id_user,
+        aturan: this.tnc,
+        hadiah: this.prize
       };
       console.log(input);
       this.http.post(this.data.BASE_URL+"/updateLomba",input).subscribe(data => {

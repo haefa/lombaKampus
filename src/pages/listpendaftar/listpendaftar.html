@@ -14,6 +14,15 @@
   
   
   <ion-content padding>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull down to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
+
     <ion-list>
       <ion-item>
         <h1><strong>{{this.title}}</strong></h1>
@@ -31,7 +40,7 @@
       <div *ngFor="let team of teams">
           <ion-item>
               <h2>{{team.nama_tim}}</h2>
-              <button ion-button clear item-end (click)="getTeam(team.id_adm)">View</button>
+              <button ion-button clear item-end (click)="getTeam([team,id_lomba,title])">View</button>
             </ion-item>
       </div>
   

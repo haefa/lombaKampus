@@ -22,8 +22,11 @@ export class ListJoinedPage {
   id_adm: number;
   id_user: any;
   title: string;
+  email: string;
+  team: string;
 
-  payment: false;
+  payment = true;
+  conf = false;
   members: any;
 
   constructor(
@@ -51,12 +54,65 @@ export class ListJoinedPage {
     this.id_lomba = temp.id_lomba;
     this.id_adm = temp.id_adm;
     this.title = temp.nama_lomba;
-//    this.getStatusBayar();
+    this.team = temp.nama_tim;
+
+    if(temp.id_lomba == undefined){
+      this.id_lomba = temp[0];
+    this.id_adm = temp[1];
+    this.title = temp[2];
+    }
+
+    this.confirm();
+    this.getStatusBayar();
     this.getAnggota();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListjoinedPage');
+  }
+
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    let loading = this.loadCtrl.create({
+        content: 'loading..'
+    });
+    loading.present();
+    
+    this.data.getData().then((data=>{
+      this.id_user = data.id_user;
+      this.getStatusBayar();
+    }
+    
+    ))
+
+    console.log("pertana : ", this.id_user);
+
+    let temp = this.navParams.data;
+    this.id_lomba = temp.id_lomba;
+    this.id_adm = temp.id_adm;
+    this.title = temp.nama_lomba;
+    this.team = temp.nama_tim;
+
+    if(temp.id_lomba == undefined){
+      this.id_lomba = temp[0];
+    this.id_adm = temp[1];
+    this.title = temp[2];
+    }
+
+//    this.getStatusBayar();
+    this.getAnggota();
+    loading.dismiss();
+
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewWillEnter();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   upload(){
@@ -130,7 +186,7 @@ export class ListJoinedPage {
     // alert(data);
     // alert("token" + this.token);
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -162,6 +218,7 @@ export class ListJoinedPage {
           {
             text: 'OK',
             handler: () => {
+              this.payment = true;
               console.log('Agree clicked');
             }
           }
@@ -180,7 +237,7 @@ export class ListJoinedPage {
 
   getAnggota(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -202,7 +259,7 @@ export class ListJoinedPage {
   getStatusBayar(){
 
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -218,7 +275,27 @@ export class ListJoinedPage {
 
     this.http.post(this.data.BASE_URL+"/getStatusBayar", input).subscribe(data => {
       let response = data.json();
-      //console.log("output:",response);
+      if(response.message == 0){
+        this.conf = false;
+      }
+      else{
+        this.conf = true;
+      }
+      console.log("output:",response);
+    });
+
+  }
+
+  confirm(){
+    this.http.get(this.data.BASE_URL+"/getPhoto/lomba/"+this.id_lomba+"_"+this.id_adm+".jpg").subscribe(data => {
+      let response = data.json();
+      if (response.status == 0){
+        this.payment = false;
+      }
+      else {
+        this.payment = true;
+      }
+      console.log("payment:",this.payment);
     });
   }
 
@@ -228,7 +305,7 @@ export class ListJoinedPage {
       message: 'Enter an email to add a member.',
       inputs: [
         {
-          name: 'name',
+          name: 'email',
           placeholder: 'Name'
         },
       ],
@@ -243,6 +320,18 @@ export class ListJoinedPage {
         {
           text: 'Add',
           handler: data => {
+            console.log(data.email);
+            let input = {
+              id_adm: this.id_adm, 
+              email : data.email,
+            };
+            console.log(input);
+            this.http.post(this.data.BASE_URL+"/tambahAnggota", input).subscribe(data => {
+              let response = data.json();
+                console.log("keluaran: ",input);
+
+                this.navCtrl.push(ListJoinedPage, [this.id_lomba, this.id_adm, this.title]);
+            });
           //this.data.addMembers();
           //this.app.getRootNav(ListJoinedPage);
           }

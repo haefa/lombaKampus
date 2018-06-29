@@ -22,6 +22,8 @@ export class CreateLombaPage {
   members: number;
   fee: number;
   id_user: any;
+  tnc: string;
+  prize: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -81,7 +83,7 @@ export class CreateLombaPage {
     // alert(data);
     // alert("token" + this.token);
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -107,8 +109,8 @@ export class CreateLombaPage {
       loading.dismiss();
 
       let alert = this.alertCtrl.create({
-        title: 'Update Foto Berhasil',
-        message: 'Harap login kembali.',
+        title: 'Poster uploaded successfuly',
+        message: '',
         buttons: [
           {
             text: 'OK',
@@ -130,11 +132,12 @@ export class CreateLombaPage {
   }
 
   createLomba(){
-    if(this.title && this.description  && this.category && this.campus && this.startdate && this.enddate && this.members && this.fee
+    if(this.title && this.description  && this.category && this.campus && this.startdate && this.enddate && this.members 
+      && this.fee && this.tnc && this.prize
     ) {
 
       let loading = this.loadCtrl.create({
-        content: 'memuat..'
+        content: 'loading..'
       });
 
       loading.present();
@@ -150,6 +153,8 @@ export class CreateLombaPage {
         max_anggota: this.members,
         kategori: this.category,
         id_user: this.id_user,
+        aturan: this.tnc,
+        hadiah: this.prize
       };
       console.log(input);
       this.http.post(this.data.BASE_URL+"/buatLomba",input).subscribe(data => {

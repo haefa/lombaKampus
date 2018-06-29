@@ -110,7 +110,7 @@ export class UploadPhotoPage {
     // alert(data);
     // alert("token" + this.token);
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();

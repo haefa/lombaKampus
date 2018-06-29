@@ -14,22 +14,40 @@
 
 
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull down to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+
   <ion-list>
     <ion-item text-center>
-      <h1><strong>TEAM NAME</strong></h1>
-      <h3>on <strong>AppsToday</strong></h3>
+      <h1><strong>{{this.name}}</strong></h1>
+      <h3>on <strong>{{this.title}}</strong></h3>
     </ion-item>
 
     <ion-item text-left><font size="4"><b>Members</b></font>
+      <ul>
+              <!-- <li>{{leader}}</li> -->
       <div *ngFor="let member of members">
-          <ul>
               <li>{{member.nama}}</li>
-          </ul>                
+                          
       </div>
+    </ul>
     </ion-item>
     
     <ion-item text-left><font size="4"><b>Payment</b></font>
-      <p>This team haven't completed their payment.</p>
+      <p *ngIf="!payment">This team haven't completed their payment.</p>
+      <ion-card *ngIf="payment">
+        <img  src="http://149.28.32.85:4444/getPhoto/lomba/{{id_lomba}}_{{id_adm}}.jpg"  class="Item"/>
+    </ion-card>
+    <button *ngIf="!conf && payment" ion-button icon-left (click)="confirm()">
+      Confirm Payment
+    </button>     
+    <p *ngIf="conf">Payment had been confirmed.</p>
       <br>
       <!-- <button ion-button>Upload Payment Receipt</button> -->
     </ion-item>

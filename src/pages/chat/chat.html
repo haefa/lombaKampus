@@ -14,8 +14,15 @@
 
 
 <ion-content>
-
-
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull down to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+<br>
     <div *ngFor="let data of chatData" id="chatMessages">
       <div *ngIf='data.id_pengirim == id_user' class="message" (press)="delete(data.id_chat)"><!--  | reverse; let last = last -->
         <div class="innerMessage messageRight">
@@ -26,7 +33,7 @@
       </div>
 
       <div *ngIf='data.id_pengirim != id_user' class="message"><!--  | reverse; let last = last -->
-        <img  class="pict" src="assets/imgs/photo1.jpg" />
+        <img  class="pict" src="http://149.28.32.85:4444/getPhoto/profil/{{data.id_pengirim}}.jpg" />
         <div class="innerMessage messageLeft">
           <div class="messageContent">{{data.pesan}}</div>
           <div text-left class="messageTimeLeft">{{data.tanggal | date: "dd MMM, H:mm" }}</div>
@@ -46,7 +53,7 @@
     </ion-col>
     
     <ion-col col-2 no-padding text-center>
-      <span class="IconSend"><ion-icon (click)="sendChat(message)" name="md-send" class="IconSendSize"></ion-icon></span>
+      <span class="IconSend"><ion-icon (click)="sendChat()" name="md-send" class="IconSendSize"></ion-icon></span>
     </ion-col>
   </ion-row>
 </ion-footer>

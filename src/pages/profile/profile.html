@@ -14,10 +14,19 @@
 
 
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull down to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
 
   <ion-card > 
 		<ion-item no-lines></ion-item>
-	  <img src="http://149.28.32.85:4444/getPhoto/profil/{{id_user}}.jpg" class="profile">
+    <img *ngIf="photo" src="http://149.28.32.85:4444/getPhoto/profil/{{id_user}}.jpg" class="profile">
+    <img *ngIf="!photo" src="assets/icon/profile.png" class="image" no-lines/>
 		
 	  <ion-card-content>
 	    <ion-card-title text-center>
@@ -43,7 +52,7 @@
 	  <ion-item>
 	    <ion-icon name="call" color="primary" item-left></ion-icon>
 	     <font size="3">Phone number</font>
-	     <p>085712163208</p>
+	     <p>{{handphone}}</p>
     </ion-item>
     
     <!-- <ion-item>

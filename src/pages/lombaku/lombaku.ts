@@ -47,6 +47,32 @@ export class LombakuPage {
     console.log('ionViewDidLoad LombakuPage');
   }
 
+  ionViewWillEnter() {
+    //ini ni ngambil value yang di return dari data.ts
+    let loading = this.loadCtrl.create({
+        content: 'loading..'
+    });
+    loading.present();
+    
+    this.data.getData().then((data=>{
+      this.id_user = data.id_user;
+    this.getLomba();
+    this.getJoined();
+    } ))
+    loading.dismiss();
+
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewWillEnter();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   joinLomba() {
     this.navCtrl.push(HomePage);
   }
@@ -57,7 +83,7 @@ export class LombakuPage {
 
   getLomba(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();
@@ -81,7 +107,7 @@ export class LombakuPage {
 
   getJoined(){
     let loading = this.loadCtrl.create({
-      content: 'memuat..'
+      content: 'loading..'
     });
 
     loading.present();

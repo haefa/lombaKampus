@@ -33,6 +33,17 @@
         <p class="Warning" ion-text [hidden]="mail.valid || submitted == false" color="danger" padding-left>
           Email must be filled
         </p>
+
+        <ion-item>
+          <ion-label floating ><p class="Head">Phone number</p></ion-label>
+          <ion-input class="Head2" [(ngModel)]="handphone"  name="hp" type="number" #hp="ngModel" spellcheck="false" autocapitalize="off"
+            required>
+          </ion-input>
+        </ion-item>
+        
+        <p class="Warning" ion-text [hidden]="hp.valid || submitted == false" color="danger" padding-left>
+          Phone number must be filled
+        </p>
   
         <ion-item>
           <ion-label floating ><p class="Head">Password</p></ion-label>

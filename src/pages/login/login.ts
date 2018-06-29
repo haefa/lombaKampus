@@ -34,7 +34,7 @@ export class LoginPage {
   signIn(){
     if(this.email && this.password){
       let loading = this.loadCtrl.create({
-        content: 'memuat..'
+        content: 'loading..'
       });
 
       loading.present();

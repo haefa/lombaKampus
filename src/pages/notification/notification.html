@@ -7,8 +7,16 @@
 
 </ion-header>
 
-
 <ion-content padding>
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull down to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <div *ngIf='!chatData'>
     <img src="assets/icon/chat.png" class="image" no-lines/>
     <p class="paragraph">You didn't have any <b>messages</b> right now.</p>
@@ -26,7 +34,7 @@
         <ion-row no-padding>
           <ion-col col-2 no-padding>
             <!-- <img *ngIf="data.img" class="pictHeader" src="http://156.67.218.250:81{{data.img}}"/> -->
-            <img  class="pictMessage" src="assets/imgs/photo1.jpg" />             
+            <img  class="pictMessage" src="http://149.28.32.85:4444/getPhoto/profil/{{chat.id_user}}.jpg" />             
           </ion-col>
           <ion-col col-9 no-padding class="contentMessage">
             <ion-row no-padding>

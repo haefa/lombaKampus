@@ -32,6 +32,18 @@
       </ion-item>
 
       <ion-item>
+        <ion-label floating color="dark"><font size="3">Terms and Condition</font></ion-label>
+        <ion-textarea [(ngModel)]="tnc" value="{{tnc}}" spellcheck="false" autocapitalize="off"
+        autosize text-wrap required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating color="dark"><font size="3">Prize</font></ion-label>
+      <ion-textarea [(ngModel)]="prize" value="{{prize}}" spellcheck="false" autocapitalize="off"
+      autosize text-wrap required></ion-textarea>
+  </ion-item>
+
+      <ion-item>
         <ion-label color="dark"><font size="3">Category</font></ion-label>
         <ion-select [(ngModel)]="category" required>
             <ion-option value="daming">Data Mining</ion-option>
